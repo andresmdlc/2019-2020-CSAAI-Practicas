@@ -4,4 +4,9 @@ body {
 
   /* Cambiamos el color del fondo */
   background-color: lightblue;
+
+  /* Modelo de caja */
+  padding: 0px;
+  margin: 0px;
+  border: none;
 }

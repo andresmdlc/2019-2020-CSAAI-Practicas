@@ -7,6 +7,12 @@ body {
 
   /* Añadimos un margen lateral */
   margin: 50px;
+
+  /* Relleno */
+  padding: 0px;
+
+  /* Borde */
+  border: none;
 }
 h1 {
   color: #FFB62E;

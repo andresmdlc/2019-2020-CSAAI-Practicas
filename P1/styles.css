@@ -3,13 +3,13 @@
 body {
 
   /* Cambiamos el color del fondo */
-  background-color: #00314C;
+  background-color: #0E2943;
 
   /* Añadimos un margen lateral */
   margin: 50px;
 
   /* Relleno */
-  padding: 0px;
+  padding: 2px;
 
   /* Borde */
   border: none;
@@ -18,12 +18,18 @@ h1 {
   color: #FFB62E;
   font-family: verdana;
   font-size: 300%;
+  margin: 20px;
+  padding:5px;
+  border: none;
 }
 
 h3 {
   color: #FFB62E;
   font-family: verdana;
   font-size: 150%;
+  margin: 20px;
+  padding:5px;
+  border: none;
 }
 p {
   color: #F7F7F7;

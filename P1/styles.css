@@ -1,18 +1,22 @@
+/* Esto son comentarios en css */
+
 body {
+
+  /* Cambiamos el color del fondo */
   background-color: #e6f0ff;
+
+  /* Añadimos un margen lateral */
   margin: 50px;
 }
 h1 {
   color: #ff0000;
   font-family: verdana;
   font-size: 300%;
-  border: 1px solid powderblue;
-  padding: 30px;
 }
 p {
   color: #009933;
   font-family: courier;
-  font-size: 160%;
+  font-size: 100%;
 }
 p.claseee {
   color: red;

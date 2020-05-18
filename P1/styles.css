@@ -3,24 +3,44 @@
 body {
 
   /* Cambiamos el color del fondo */
-  background-color: #e6f0ff;
+  background-color: #00314C;
 
   /* Añadimos un margen lateral */
   margin: 50px;
 }
 h1 {
-  color: #ff0000;
+  color: #FFB62E;
   font-family: verdana;
   font-size: 300%;
 }
+
+h3 {
+  color: #FFB62E;
+  font-family: verdana;
+  font-size: 150%;
+}
 p {
-  color: #009933;
+  color: #F7F7F7;
   font-family: courier;
   font-size: 100%;
 }
-p.claseee {
-  color: red;
+ol {
+  color: #F7F7F7;
+  font-family: courier;
+  font-size: 100%;
 }
-#espesial {
-  color: blue;
+ul {
+  color: #F7F7F7;
+  font-family: courier;
+  font-size: 100%;
+}
+div {
+  color: #F7F7F7;
+  font-family: courier;
+  font-size: 100%;
+}
+a {
+  color: #66BEEE;
+  font-family: courier;
+  font-size: 100%;
 }

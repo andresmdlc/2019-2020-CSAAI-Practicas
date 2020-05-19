@@ -1,25 +1,21 @@
-//-- Contador de clicks de boton
+//-- Crear objeto gui, con los elementos de la interfaz gráfica
+//-- Al tenerlo agrupado podemos pasarlo como parámetro o asignárselo
+//-- a otro objeto
+const gui = {
+  display1: document.getElementById("display1"),
+  boton: document.getElementById("boton"),
+}
 
-console.log("Ejecutando JS...");
+//-- Objeto contador: Contiene el valor y el método para incrementarse
+const counter = {
+  valor: 0,
+  inc : function(value) {
+    this.valor += value;
+    gui.display1.innerHTML = this.valor;
+  }
+}
 
-//-- Acceder a los elementos del DOM
-const display1 = document.getElementById("display1");
-const display2 = document.getElementById("display2");
-const boton = document.getElementById("boton");
-
-//-- Contador de clicks
-let cont = 0;
-
-//-- Configurar retrollamada del boton
-boton.onclick = () => {
-  console.log("Click!");
-
-  //-- Incrementar contador
-  cont += 1;
-
-  //-- Actualizar el display
-  display1.innerHTML = cont;
-
-  //-- Añadir el número al párrafo
-  display2.innerHTML += " " + cont;
+//-- Acciones: Ligar el boton al contador
+gui.boton.onclick = () => {
+  counter.inc(2)
 }

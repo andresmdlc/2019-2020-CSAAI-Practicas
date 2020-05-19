@@ -18,5 +18,5 @@ parrafo2.onclick = () => {
   console.log("Click sobre el párrafo 2...")
 
   //-- Cambiar su texto
-  parrafo1.innerHTML = "Como has clickado en el párrafo 2, hemos cambiado el párrafo 1 MUAJAJAJA"
+  parrafo1.innerHTML = "Como has clickado en el párrafo 2, hemos modificado el párrafo 1 MUAJAJAJA"
 }

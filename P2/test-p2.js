@@ -9,7 +9,8 @@ console.log("Párrafo test leido. Dice:")
 console.log(test.innerHTML)
 
 //-- Configurar el manejador para el evento de
-//-- pulsación de botón
+//-- pulsación de botón. Cada vez que se hace
+//-- click sobre el párrafo aumenta el contador
 test.onclick = function () {
   console.log("Click sobre el párrafo...")
 }

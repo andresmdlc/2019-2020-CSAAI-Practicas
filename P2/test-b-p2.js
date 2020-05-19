@@ -3,7 +3,8 @@
 console.log("Ejecutando JS...");
 
 //-- Acceder a los elementos del DOM
-const display = document.getElementById("display");
+const display1 = document.getElementById("display1");
+const display2 = document.getElementById("display2");
 const boton = document.getElementById("boton");
 
 //-- Contador de clicks
@@ -17,5 +18,8 @@ boton.onclick = () => {
   cont += 1;
 
   //-- Actualizar el display
-  display.innerHTML = cont;
+  display1.innerHTML = cont;
+
+  //-- Añadir el numero al párrafo
+  display2.innerHTML += " " + cont;
 }

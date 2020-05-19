@@ -20,6 +20,6 @@ boton.onclick = () => {
   //-- Actualizar el display
   display1.innerHTML = cont;
 
-  //-- Añadir el numero al párrafo
+  //-- Añadir el número al párrafo
   display2.innerHTML += " " + cont;
 }

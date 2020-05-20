@@ -26,8 +26,6 @@ for (i=0; i<operacion.length; i++) {
   }
 }
 
-
-
 //-- Evaluar la expresion
 igual.onclick = () => {
   display2.innerHTML = eval(display1.innerHTML);

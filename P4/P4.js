@@ -36,11 +36,11 @@ video2.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/
 video3.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
 
 //-- Obtener los botones
-const play = document.getElementById("play")
+const play_video1 = document.getElementById("play_video1")
 const stop = document.getElementById("stop")
 
 //-- Función de retrollamada del botón de ver
-play.onclick = () => {
+play_video1.onclick = () => {
   console.log("Click!");
   video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4"
   video1.play();

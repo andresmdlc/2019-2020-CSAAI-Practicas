@@ -12,7 +12,7 @@ const ctx = canvas.getContext("2d");
 
 //----- Dibujar la Bola
 ctx.beginPath();
-ctx.fillStyle='white';
+ctx.fillStyle='yellow';
 
 //-- x,y, anchura, altura
 ctx.rect(100, 200, 10, 10);

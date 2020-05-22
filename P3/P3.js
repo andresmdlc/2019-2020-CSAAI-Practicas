@@ -13,6 +13,8 @@ const ctx = canvas.getContext("2d");
 //-- Variables para la bola
 let bola_x = 50;
 
+
+
 //-- Pintar todos los objetos en el canvas
 function draw() {
 
@@ -60,19 +62,23 @@ function draw() {
   ctx.fillText("1", 340, 80);
 }
 
+
+
 //---- Bucle principal de la animación
 function animacion()
 {
   //-- Actualizar las posiciones de los objetos móviles
-  //-- De moento no lo estamos haciendo
+  //-- Actualizar coordenada x de la bola
+  bola_x += 1;
 
   //-- Borrar la pantalla
   ctx.clearRect(0,0, canvas.width, canvas.height);
 
   //-- Dibujar el nuevo frame
   draw();
-
 }
+
+
 
 //-- Arrancar la animación
 setInterval(()=>{
@@ -82,12 +88,12 @@ setInterval(()=>{
 //-- Obtener el boton de dar un "paso"
 const paso = document.getElementById("paso");
 
-//-- Botón de dar un Paso: Cada vez que lo apretamos
-//-- la bola avanza 5 píxeles
-paso.onclick = () => {
-  //-- Incrementar la posicion x de la bola
-  bola_x += 5;
-  console.log("Paso!");
+//-- Botón de Reset:
+//-- la bola vuelve a su posición inicial
+reset.onclick = () => {
+  //-- Establecer posicion inicial de la bola
+  bola_x = 50;
+  console.log("Reset!");
 }
 
 

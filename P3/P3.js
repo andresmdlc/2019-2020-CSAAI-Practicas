@@ -14,6 +14,11 @@ const ctx = canvas.getContext("2d");
 let bola_x = 50;
 let bola_vx = 0;
 
+//-- Variables para la raqueta izquierda
+let raqI_x = 50;
+let raqI_y = 100;
+let raqI_v = 0;  //-- Velocidad
+
 //-- Pintar todos los objetos en el canvas
 function draw() {
 
@@ -30,7 +35,7 @@ function draw() {
   ctx.fillStyle='white';
 
   //-- Raqueta izquierda
-  ctx.rect(50, 100, 10, 40);
+  ctx.rect(raqI_x, raqI_y, 10, 40);
 
   //-- Raqueta derecha
   ctx.rect(540, 300, 10, 40);
@@ -61,6 +66,8 @@ function draw() {
   ctx.fillText("1", 340, 80);
 }
 
+
+
 //---- Bucle principal de la animación
 function animacion()
 {
@@ -79,12 +86,17 @@ function animacion()
   //-- su velocidad
   bola_x += bola_vx;
 
+  //-- Actualizar la raqueta con la velocidad actual
+  raqI_y += raqI_v;
+
   //-- Borrar la pantalla
   ctx.clearRect(0,0, canvas.width, canvas.height);
 
   //-- Dibujar el nuevo frame
   draw();
 }
+
+
 
 //-- Arrancar la animación
 setInterval(()=>{
@@ -94,12 +106,26 @@ setInterval(()=>{
 //-- Retrollamada de las teclas
 window.onkeydown = (e) => {
 
-  //-- Según la tecla se hace una cosa u otra
   switch (e.key) {
-
-    //-- Tecla ESPACIO: Saque
+    case "a":
+      raqI_v = 3;
+      break;
+    case "q":
+      raqI_v = -3;
+      break;
     case " ":
       bola_x = 50;
       bola_vx = 6;
+    default:
+  }
+}
+
+
+
+//-- Retrollamada de la liberacion de teclas
+window.onkeyup = (e) => {
+  if (e.key == "a" || e.key == "q"){
+    //-- Quitar velocidad de la raqueta
+    raqI_v = 0;
   }
 }

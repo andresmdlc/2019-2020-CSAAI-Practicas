@@ -64,6 +64,7 @@ function animacion()
 
     //-- Parar la bola
     bola.vx = 0;
+    bola.vy = 0;
   }
 
   //-- Comprobar si la bola ha alcanzado el límite izquierdo
@@ -77,9 +78,24 @@ function animacion()
 
     //-- Parar la bola
     bola.vx = 0;
+    bola.vy = 0;
   }
 
+  //-- Comprobar si la bola ha alcanzado el límite derecho
+  //-- Si es así, se cambia de signo la velocidad, para
+  // que "rebote" y vaya en el sentido opuesto
+  if (bola.y <= 0) {
+    //-- Hay colisión. Cambiar el signo de la bola
+    bola.vy = bola.vy * -1;
+  }
 
+  //-- Comprobar si la bola ha alcanzado el límite derecho
+  //-- Si es así, se cambia de signo la velocidad, para
+  // que "rebote" y vaya en el sentido opuesto
+  if (bola.y >= canvas.height) {
+    //-- Hay colisión. Cambiar el signo de la bola
+    bola.vy = bola.vy * -1;
+  }
 
   //-- Comprobar si hay colisión con la raqueta izquierda
   if (bola.x >= raqI.x && bola.x <=(raqI.x + raqI.width) &&
@@ -145,6 +161,7 @@ window.onkeydown = (e) => {
 
       //-- Darle velocidad
       bola.vx = bola.vx_ini;
+      bola.vy = bola.vy_ini;
     default:
   }
 }

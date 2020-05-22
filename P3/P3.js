@@ -67,6 +67,12 @@ function animacion()
     bola.vx = bola.vx * -1;
   }
 
+  //-- Comprobar si hay colisión con la raqueta derecha
+  if (bola.x >= raqD.x && bola.x <=(raqD.x + raqD.width) &&
+      bola.y >= raqD.y && bola.y <=(raqD.y + raqD.height)) {
+    bola.vx = bola.vx * -1;
+  }
+
   //-- Actualizar coordenada x de la bola, en funcion de
   //-- su velocidad
   bola.update()
@@ -99,11 +105,11 @@ setInterval(()=>{
 window.onkeydown = (e) => {
 
   switch (e.key) {
-    case "a":
-      raqI.v = raqI.v_ini;
-      break;
     case "q":
       raqI.v = raqI.v_ini * -1;
+      break;
+    case "s":
+      raqI.v = raqI.v_ini;
       break;
     case "p":
       raqD.v = raqD.v_ini * -1;

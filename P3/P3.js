@@ -59,6 +59,12 @@ function animacion()
   if (bola.x >= canvas.width) {
     //-- Hay colisión. Cambiar el signo de la bola
     tanteo_izquierdo = tanteo_izquierdo + 1;
+
+    //-- Llevar bola a su posicion incicial
+    bola.init();
+
+    //-- Parar la bola
+    bola.vx = 0;
   }
 
   //-- Comprobar si la bola ha alcanzado el límite derecho
@@ -67,7 +73,15 @@ function animacion()
   if (bola.x <= 0) {
     //-- Hay colisión. Cambiar el signo de la bola
     tanteo_derecho = tanteo_derecho + 1;
+
+    //-- Llevar bola a su posicion incicial
+    bola.init();
+
+    //-- Parar la bola
+    bola.vx = 0;
   }
+
+
 
   //-- Comprobar si hay colisión con la raqueta izquierda
   if (bola.x >= raqI.x && bola.x <=(raqI.x + raqI.width) &&
@@ -108,6 +122,8 @@ raqD.init();
 setInterval(()=>{
   animacion();
 },16);
+
+
 
 //-- Retrollamada de las teclas
 window.onkeydown = (e) => {

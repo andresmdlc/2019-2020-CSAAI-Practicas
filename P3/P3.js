@@ -129,7 +129,7 @@ window.onkeydown = (e) => {
 
 //-- Retrollamada de la liberacion de teclas
 window.onkeyup = (e) => {
-  if (e.key == "a" || e.key == "q"){
+  if (e.key == "q" || e.key == "s"){
     //-- Quitar velocidad de la raqueta
     raqI.v = 0;
   }

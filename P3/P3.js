@@ -58,7 +58,7 @@ function animacion()
   // que "rebote" y vaya en el sentido opuesto
   if (bola.x >= canvas.width) {
     //-- Hay colisión. Cambiar el signo de la bola
-
+    tanteo_izquierdo = tanteo_izquierdo + 1;
   }
 
   //-- Comprobar si la bola ha alcanzado el límite derecho
@@ -66,7 +66,7 @@ function animacion()
   // que "rebote" y vaya en el sentido opuesto
   if (bola.x <= 0) {
     //-- Hay colisión. Cambiar el signo de la bola
-
+    tanteo_derecho = tanteo_derecho + 1;
   }
 
   //-- Comprobar si hay colisión con la raqueta izquierda

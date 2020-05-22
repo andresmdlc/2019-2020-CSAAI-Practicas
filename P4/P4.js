@@ -37,6 +37,8 @@ video3.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/
 
 //-- Obtener los botones
 const play_video1 = document.getElementById("play_video1")
+const play_video2 = document.getElementById("play_video2")
+const play_video3 = document.getElementById("play_video3")
 const stop = document.getElementById("stop")
 
 //-- Función de retrollamada del botón de ver

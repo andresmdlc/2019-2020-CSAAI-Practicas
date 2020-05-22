@@ -10,65 +10,15 @@ console.log(`canvas: Anchura: ${canvas.width}, Altura: ${canvas.height}`);
 //-- Obtener el contexto para pintar en el canvas
 const ctx = canvas.getContext("2d");
 
-//-- Objeto raqueta
-const raqI = {
-  //-- Constante: Tamaño de la raqueta
-  width : 10,
-  height: 40,
-
-  //-- Constante: Posicion inicial
-  x_ini : 50,
-  y_ini : 100,
-
-  //-- Constante: Velocidad
-  v_ini : 3,
-
-  //-- Velocidad (variable)
-  v : 0,
-}
-
-function raqI_init()
-{
-  raqI.x = raqI.x_ini;
-  raqI.y = raqI.y_ini;
-}
-
-function raqI_update()
-{
-  raqI.y += raqI.v;
-}
-
-function raqI_draw()
-{
-  //------- Dibujar las raquetas
-  ctx.beginPath();
-  ctx.fillStyle='white';
-
-  //-- Raqueta izquierda
-  ctx.rect(raqI.x, raqI.y, raqI.width, raqI.height);
-
-  //-- Pintar!
-  ctx.fill();
-}
-
 //-- Pintar todos los objetos en el canvas
 function draw() {
 
   //----- Dibujar la Bola
   bola.draw();
 
-  //-- Dibunar la raqueta izquierda
-  raqI_draw();
-
-  //------- Dibujar la raqueta derecha
-  ctx.beginPath();
-  ctx.fillStyle='white';
-
-  //-- Raqueta derecha
-  ctx.rect(540, 300, 10, 40);
-
-  //-- Pintar!
-  ctx.fill();
+  //-- Dibujar las raquetas
+  raqI.draw();
+  raqD.draw();
 
   //--------- Dibujar la red
   ctx.beginPath();
@@ -100,8 +50,8 @@ function animacion()
   //-- Actualizar las posiciones de los objetos móviles
 
   //-- Actualizar la raqueta con la velocidad actual
-  raqI_update();
-
+  raqI.update();
+  raqD.update();
 
   //-- Comprobar si la bola ha alcanzado el límite derecho
   //-- Si es así, se cambia de signo la velocidad, para
@@ -130,10 +80,15 @@ function animacion()
 
 //-- Inicializa la bola: Llevarla a su posicion inicial
 const bola = new Bola(ctx);
-bola.init();
 
-//-- Inicializar la raqueta a su posicion inicial
-raqI_init();
+//-- Crear las raquetas
+const raqI = new Raqueta(ctx);
+const raqD = new Raqueta(ctx);
+
+//-- Cambiar las coordenadas de la raqueta derecha
+raqD.x_ini = 540;
+raqD.y_ini = 300;
+raqD.init();
 
 //-- Arrancar la animación
 setInterval(()=>{
@@ -150,6 +105,12 @@ window.onkeydown = (e) => {
     case "q":
       raqI.v = raqI.v_ini * -1;
       break;
+    case "p":
+      raqD.v = raqD.v_ini * -1;
+      break;
+    case "l":
+      raqD.v = raqD.v_ini;
+      break;
     case " ":
       //-- Llevar bola a su posicion incicial
       bola.init();
@@ -165,5 +126,9 @@ window.onkeyup = (e) => {
   if (e.key == "a" || e.key == "q"){
     //-- Quitar velocidad de la raqueta
     raqI.v = 0;
+  }
+
+  if (e.key == "p" || e.key == "l") {
+    raqD.v = 0;
   }
 }

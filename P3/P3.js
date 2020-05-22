@@ -46,3 +46,9 @@ ctx.moveTo(canvas.width/2, 0);
 //-- Dibujar hasta el punto inferior
 ctx.lineTo(canvas.width/2, canvas.height);
 ctx.stroke();
+
+//------ Dibujar el tanteo
+ctx.font = "100px Arial";
+ctx.fillStyle = "white";
+ctx.fillText("0", 200, 80);
+ctx.fillText("1", 340, 80);

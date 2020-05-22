@@ -12,7 +12,7 @@ const ctx = canvas.getContext("2d");
 
 //----- Dibujar la Bola
 ctx.beginPath();
-ctx.fillStyle='yellow';
+ctx.fillStyle='white';
 
 //-- x,y, anchura, altura
 ctx.rect(100, 200, 10, 10);
@@ -20,13 +20,29 @@ ctx.fill();
 
 //------- Dibujar las raquetas
 ctx.beginPath();
-ctx.fillStyle='lightblue';
+ctx.fillStyle='white';
 
 //-- Raqueta izquierda
 ctx.rect(50, 100, 10, 40);
 
 //-- Raqueta derecha
-ctx.rect(550, 300, 10, 40);
+ctx.rect(540, 300, 10, 40);
 
 //-- Pintar!
 ctx.fill();
+
+//--------- Dibujar la red
+ctx.beginPath();
+
+//-- Estilo de la linea: discontinua
+//-- Trazos de 10 pixeles, y 10 de separacion
+ctx.setLineDash([10, 10]);
+ctx.strokeStyle = 'white';
+ctx.lineWidth = 2;
+//-- Punto superior de la linea. Su coordenada x está en la mitad
+//-- del canvas
+ctx.moveTo(canvas.width/2, 0);
+
+//-- Dibujar hasta el punto inferior
+ctx.lineTo(canvas.width/2, canvas.height);
+ctx.stroke();

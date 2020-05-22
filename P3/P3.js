@@ -2,6 +2,8 @@ console.log("Ejecutando JS...");
 
 //-- Obtener el objeto canvas
 const canvas = document.getElementById("canvas");
+tanteo_izquierdo = 0;
+tanteo_derecho = 0;
 
 //-- Sus dimensiones las hemos fijado en el fichero
 //-- HTML. Las imprimimos en la consola
@@ -37,8 +39,8 @@ function draw() {
   //------ Dibujar el tanteo
   ctx.font = "100px Arial";
   ctx.fillStyle = "white";
-  ctx.fillText("0", 200, 80);
-  ctx.fillText("1", 340, 80);
+  ctx.fillText(tanteo_izquierdo, 200, 80);
+  ctx.fillText(tanteo_derecho, 340, 80);
 }
 
 //---- Bucle principal de la animación
@@ -51,23 +53,21 @@ function animacion()
   raqI.update();
   raqD.update();
 
+  //-- Comprobar si la bola ha alcanzado el límite derecho
+  //-- Si es así, se cambia de signo la velocidad, para
+  // que "rebote" y vaya en el sentido opuesto
+  if (bola.x >= canvas.width) {
+    //-- Hay colisión. Cambiar el signo de la bola
 
+  }
 
   //-- Comprobar si la bola ha alcanzado el límite derecho
-  //-- Si es así, punto para el jugador izquierdo
-  if (bola.x >= canvas.width) {
-    //-- Hay colisión, punto para el jugador izquierdo
-    
-  }
-
-  //-- Comprobar si la bola ha alcanzado el límite izquierdo
-  //-- Si es así, punto para el jugador derecho
-  if (bola.x = canvas.width) {
-    //-- Hay colisión, punto para el jugador derecho
+  //-- Si es así, se cambia de signo la velocidad, para
+  // que "rebote" y vaya en el sentido opuesto
+  if (bola.x <= 0) {
+    //-- Hay colisión. Cambiar el signo de la bola
 
   }
-
-
 
   //-- Comprobar si hay colisión con la raqueta izquierda
   if (bola.x >= raqI.x && bola.x <=(raqI.x + raqI.width) &&

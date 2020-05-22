@@ -20,7 +20,7 @@ ctx.fill();
 
 //------- Dibujar las raquetas
 ctx.beginPath();
-ctx.fillStyle='white';
+ctx.fillStyle='lightblue';
 
 //-- Raqueta izquierda
 ctx.rect(50, 100, 10, 40);

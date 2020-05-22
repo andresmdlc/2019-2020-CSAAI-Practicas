@@ -10,54 +10,6 @@ console.log(`canvas: Anchura: ${canvas.width}, Altura: ${canvas.height}`);
 //-- Obtener el contexto para pintar en el canvas
 const ctx = canvas.getContext("2d");
 
-//-- Objeto: Bola
-const bola = {
-
-  //-- Constante: Tamaño de la bola
-  size : 5,
-
-  //-- Contante: Posicion inicial de la bola
-  x_ini : 100,
-  y_ini : 200,
-
-  //-- Posicion generica de la bola
-  x : 0,
-  y : 0,
-
-  //-- Velocidad inicial de la bola
-  vx_ini : 6,
-  vy_ini : 3,
-
-  //-- Velocidad genérica de la bola
-  //-- Inicialmente a cero
-  vx : 0,
-  vy : 0,
-}
-
-function bola_draw()
-{
-  //----- Dibujar la Bola
-  ctx.beginPath();
-  ctx.fillStyle='white';
-
-  //-- x,y, anchura, altura
-  ctx.rect(bola.x, bola.y, bola.size, bola.size);
-  ctx.fill();
-}
-
-function bola_init()
-{
-  //-- Inicializa la bola: A su posicion inicial
-  bola.x = bola.x_ini;
-  bola.y = bola.y_ini;
-}
-
-function bola_update()
-{
-  bola.x += bola.vx;
-  bola.y += bola.vy;
-}
-
 //-- Objeto raqueta
 const raqI = {
   //-- Constante: Tamaño de la raqueta
@@ -103,7 +55,7 @@ function raqI_draw()
 function draw() {
 
   //----- Dibujar la Bola
-  bola_draw();
+  bola.draw();
 
   //-- Dibunar la raqueta izquierda
   raqI_draw();
@@ -167,7 +119,7 @@ function animacion()
 
   //-- Actualizar coordenada x de la bola, en funcion de
   //-- su velocidad
-  bola_update()
+  bola.update()
 
   //-- Borrar la pantalla
   ctx.clearRect(0,0, canvas.width, canvas.height);
@@ -176,8 +128,9 @@ function animacion()
   draw();
 }
 
-//-- Inicializa la bola: A su posicion inicial
-bola_init();
+//-- Inicializa la bola: Llevarla a su posicion inicial
+const bola = new Bola(ctx);
+bola.init();
 
 //-- Inicializar la raqueta a su posicion inicial
 raqI_init();
@@ -199,7 +152,7 @@ window.onkeydown = (e) => {
       break;
     case " ":
       //-- Llevar bola a su posicion incicial
-      bola_init();
+      bola.init();
 
       //-- Darle velocidad
       bola.vx = bola.vx_ini;

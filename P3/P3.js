@@ -13,14 +13,12 @@ const ctx = canvas.getContext("2d");
 //-- Pintar todos los objetos en el canvas
 function draw() {
 
-  //----- Dibujar la Bola
+  //-- Dibujar la bola y las raquetas
   bola.draw();
-
-  //-- Dibujar las raquetas
   raqI.draw();
   raqD.draw();
 
-  //--------- Dibujar la red
+  //-- Dibujar la red
   ctx.beginPath();
 
   //-- Estilo de la linea: discontinua
@@ -53,13 +51,23 @@ function animacion()
   raqI.update();
   raqD.update();
 
+
+
   //-- Comprobar si la bola ha alcanzado el límite derecho
-  //-- Si es así, se cambia de signo la velocidad, para
-  // que "rebote" y vaya en el sentido opuesto
+  //-- Si es así, punto para el jugador izquierdo
   if (bola.x >= canvas.width) {
-    //-- Hay colisión. Cambiar el signo de la bola
-    bola.vx = bola.vx * -1;
+    //-- Hay colisión, punto para el jugador izquierdo
+    
   }
+
+  //-- Comprobar si la bola ha alcanzado el límite izquierdo
+  //-- Si es así, punto para el jugador derecho
+  if (bola.x = canvas.width) {
+    //-- Hay colisión, punto para el jugador derecho
+
+  }
+
+
 
   //-- Comprobar si hay colisión con la raqueta izquierda
   if (bola.x >= raqI.x && bola.x <=(raqI.x + raqI.width) &&

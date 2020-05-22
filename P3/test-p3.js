@@ -8,7 +8,7 @@ body = document.getElementsByTagName('body')[0]
 window.onkeydown = (e) => {
 
   //-- Comprobar si la tecla es un espacio
-  if (e.key == ' ') {
+  if (e.key == 'j') {
 
     //-- Cambiar la activación de la clase color
     body.classList.toggle("color");

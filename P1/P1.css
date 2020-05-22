@@ -14,6 +14,15 @@ body {
   /* Borde */
   border: none;
 }
+
+/*
+   Clase color. Cambiar el color
+   del fondo
+*/
+.color {
+  background-color: #FFB62E;
+}
+
 h1 {
   color: #FFB62E;
   font-family: verdana;

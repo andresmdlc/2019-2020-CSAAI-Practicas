@@ -12,6 +12,7 @@ const ctx = canvas.getContext("2d");
 
 //-- Variables para la bola
 let bola_x = 50;
+let bola_vx = 0;
 
 
 
@@ -67,9 +68,20 @@ function draw() {
 //---- Bucle principal de la animación
 function animacion()
 {
+
   //-- Actualizar las posiciones de los objetos móviles
-  //-- Actualizar coordenada x de la bola
-  bola_x += 1;
+
+  //-- Comprobar si la bola ha alcanzado el límite derecho
+  //-- Si es así, se cambia de signo la velocidad, para
+  // que "rebote" y vaya en el sentido opuesto
+  if (bola_x >= canvas.width) {
+    //-- Hay colisión. Cambiar el signo de la bola
+    bola_vx = bola_vx * -1;
+  }
+
+  //-- Actualizar coordenada x de la bola, en funcion de
+  //-- su velocidad
+  bola_x += bola_vx;
 
   //-- Borrar la pantalla
   ctx.clearRect(0,0, canvas.width, canvas.height);
@@ -85,15 +97,16 @@ setInterval(()=>{
   animacion();
 },16);
 
-//-- Obtener el boton de dar un "paso"
-const paso = document.getElementById("paso");
+//-- Obtener el boton de saque
+const sacar = document.getElementById("sacar");
 
-//-- Botón de Reset:
-//-- la bola vuelve a su posición inicial
-reset.onclick = () => {
-  //-- Establecer posicion inicial de la bola
+//-- Botón de saque:
+//-- Dar a la bola una velocidad inicial
+//-- También restablecemos la posicion inicial
+sacar.onclick = () => {
   bola_x = 50;
-  console.log("Reset!");
+  bola_vx = 3;
+  console.log("Saque!");
 }
 
 

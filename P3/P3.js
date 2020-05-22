@@ -54,27 +54,25 @@ function animacion()
   raqD.update();
 
   //-- Comprobar si la bola ha alcanzado el límite derecho
-  //-- Si es así, se cambia de signo la velocidad, para
-  // que "rebote" y vaya en el sentido opuesto
+  //-- Si es así, punto para el jugador izquierdo
   if (bola.x >= canvas.width) {
-    //-- Hay colisión. Cambiar el signo de la bola
-    tanteo_izquierdo = tanteo_izquierdo + 1;
+    //-- Hay colisión. Punto para el jugador izquierdo
+    tanteo_izquierdo++;
 
-    //-- Llevar bola a su posicion incicial
+    //-- Llevar bola a su posicion inicial
     bola.init();
 
     //-- Parar la bola
     bola.vx = 0;
   }
 
-  //-- Comprobar si la bola ha alcanzado el límite derecho
-  //-- Si es así, se cambia de signo la velocidad, para
-  // que "rebote" y vaya en el sentido opuesto
+  //-- Comprobar si la bola ha alcanzado el límite izquierdo
+  //-- Si es así, punto para el jugador derecho
   if (bola.x <= 0) {
-    //-- Hay colisión. Cambiar el signo de la bola
-    tanteo_derecho = tanteo_derecho + 1;
+    //-- Hay colisión. Punto para el jugador derecho
+    tanteo_derecho++;
 
-    //-- Llevar bola a su posicion incicial
+    //-- Llevar bola a su posicion inicial
     bola.init();
 
     //-- Parar la bola
@@ -142,7 +140,7 @@ window.onkeydown = (e) => {
       raqD.v = raqD.v_ini;
       break;
     case " ":
-      //-- Llevar bola a su posicion incicial
+      //-- Llevar bola a su posicion inicial
       bola.init();
 
       //-- Darle velocidad

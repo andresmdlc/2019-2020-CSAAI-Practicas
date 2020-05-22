@@ -17,7 +17,23 @@ video3.height=100;
 
 //-- Imagen estática a mostrar cuando el video no
 //-- ha arrancado
+//-- Vídeo en emisión
 video1.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
+
+//-- Imagen estática a mostrar cuando el video no
+//-- ha arrancado
+//-- Fuente 1
+video1.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
+
+//-- Imagen estática a mostrar cuando el video no
+//-- ha arrancado
+//-- Fuente 2
+video2.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
+
+//-- Imagen estática a mostrar cuando el video no
+//-- ha arrancado
+//-- Fuente 3
+video3.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
 
 //-- Obtener los botones
 const play = document.getElementById("play")

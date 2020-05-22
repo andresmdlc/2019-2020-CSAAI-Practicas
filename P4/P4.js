@@ -5,44 +5,16 @@ const video1 = document.getElementById("video1")
 video1.width=200;  //-- Tamaño de la pantalla de video
 video1.height=100;
 
-//----- Obtener elemento de video y configurarlo
-const video2 = document.getElementById("video2")
-video2.width=200;  //-- Tamaño de la pantalla de video
-video2.height=100;
-
-//----- Obtener elemento de video y configurarlo
-const video3 = document.getElementById("video3")
-video3.width=200;  //-- Tamaño de la pantalla de video
-video3.height=100;
-
 //-- Imagen estática a mostrar cuando el video no
 //-- ha arrancado
-//-- Vídeo en emisión
 video1.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
-
-//-- Imagen estática a mostrar cuando el video no
-//-- ha arrancado
-//-- Fuente 1
-video1.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
-
-//-- Imagen estática a mostrar cuando el video no
-//-- ha arrancado
-//-- Fuente 2
-video2.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
-
-//-- Imagen estática a mostrar cuando el video no
-//-- ha arrancado
-//-- Fuente 3
-video3.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";
 
 //-- Obtener los botones
-const play_video1 = document.getElementById("play_video1")
-const play_video2 = document.getElementById("play_video2")
-const play_video3 = document.getElementById("play_video3")
+const play = document.getElementById("play")
 const stop = document.getElementById("stop")
 
 //-- Función de retrollamada del botón de ver
-play_video1.onclick = () => {
+play.onclick = () => {
   console.log("Click!");
   video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4"
   video1.play();

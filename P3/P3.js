@@ -21,7 +21,7 @@ function draw() {
   ctx.fillStyle='white';
 
   //-- x,y, anchura, altura
-  ctx.rect(50, 200, 10, 10);
+  ctx.rect(bola_x, 200, 10, 10);
   ctx.fill();
 
   //------- Dibujar las raquetas

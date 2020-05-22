@@ -10,6 +10,9 @@ console.log(`canvas: Anchura: ${canvas.width}, Altura: ${canvas.height}`);
 //-- Obtener el contexto para pintar en el canvas
 const ctx = canvas.getContext("2d");
 
+//-- Variables para la bola
+let bola_x = 50;
+
 //-- Pintar todos los objetos en el canvas
 function draw() {
 
@@ -69,14 +72,25 @@ function animacion()
   //-- Dibujar el nuevo frame
   draw();
 
-  //-- Mostrar actividad en la consola
-  console.log("Frame!");
 }
 
 //-- Arrancar la animación
 setInterval(()=>{
   animacion();
 },16);
+
+//-- Obtener el boton de dar un "paso"
+const paso = document.getElementById("paso");
+
+//-- Botón de dar un Paso: Cada vez que lo apretamos
+//-- la bola avanza 5 píxeles
+paso.onclick = () => {
+  //-- Incrementar la posicion x de la bola
+  bola_x += 5;
+  console.log("Paso!");
+}
+
+
 
 //----- Dibujar la Bola
 ctx.beginPath();

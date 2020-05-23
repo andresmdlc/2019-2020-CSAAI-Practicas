@@ -49,9 +49,10 @@ deslizador.oninput = () => {
   umbral = deslizador.value
 
   //-- Filtrar la imagen según el nuevo umbral
+  //-- Se van recorriendo los píxeles de la imagen
   for (let i = 0; i < data.length; i+=4) {
 
-    //-- Si supera el umbral (valor máximo) 
+    //-- Si supera el umbral (valor máximo)
     //-- se le asigna dicho nivel de intensidad
     if (data[i] > umbral)
       data[i] = umbral;

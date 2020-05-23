@@ -1,4 +1,5 @@
 console.log("Ejecutando JS...");
+console.log("Obteniendo vídeo, imagen y botones...");
 
 //----- Obtener elemento de video y configurarlo
 const video1 = document.getElementById("video1")
@@ -12,6 +13,10 @@ video1.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/
 //-- Obtener los botones
 const play = document.getElementById("play")
 const stop = document.getElementById("stop")
+
+
+
+console.log("Configurando las funciones de Ver y Parar...");
 
 //-- Función de retrollamada del botón de ver
 play.onclick = () => {

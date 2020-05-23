@@ -5,8 +5,10 @@ const canvas = document.getElementById('canvas');
 const img = document.getElementById('imagesrc');
 const ctx = canvas.getContext('2d');
 
-//-- Acceso al deslizador_rojo
+//-- Acceso a los deslizadores
 const deslizador_rojo = document.getElementById('deslizador_rojo');
+const deslizador_verde = document.getElementById('deslizador_verde');
+const deslizador_azul = document.getElementById('deslizador_azul');
 
 //-- Valor del deslizador_rojo
 const range_value = document.getElementById('range_value');

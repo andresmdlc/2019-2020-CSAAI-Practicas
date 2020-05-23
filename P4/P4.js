@@ -29,3 +29,35 @@ const play1 = document.getElementById("play1")
 const play2 = document.getElementById("play2")
 const play3 = document.getElementById("play3")
 const play4 = document.getElementById("play4")
+
+
+
+console.log("Configurando las funciones de los botones...");
+
+//-- Función de retrollamada del botón de Seleccionar fuente 1
+play.onclick = () => {
+  console.log("Click!");
+  video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4"
+  video1.play();
+};
+
+//-- Función de retrollamada del botón de Seleccionar fuente 2
+play.onclick = () => {
+  console.log("Click!");
+  video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4"
+  video1.play();
+};
+
+//-- Función de retrollamada del botón de Seleccionar fuente 3
+play.onclick = () => {
+  console.log("Click!");
+  video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4"
+  video1.play();
+};
+
+//-- Función de retrollamada del botón de Seleccionar fuente 4
+play.onclick = () => {
+  console.log("Click!");
+  video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4"
+  video1.play();
+};

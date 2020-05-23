@@ -34,3 +34,7 @@ console.log("Dibujando texto...");
 ctx.font = "25px Arial";
 ctx.fillStyle = 'yellow'
 ctx.fillText("Texto sólido", 10, 30);
+
+
+
+console.log("Poniendo imágenes...");

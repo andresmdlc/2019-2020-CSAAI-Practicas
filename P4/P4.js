@@ -1,5 +1,8 @@
 console.log("Ejecutando JS...");
-console.log("Obteniendo los vídeos y botones...");
+
+
+
+//-- OBTENIENDO LOS VÍDEOS Y BOTONES
 
 //----- Obtener elemento de video y configurarlo
 const video_emision = document.getElementById("video_emision")
@@ -32,7 +35,7 @@ const play4 = document.getElementById("play4")
 
 
 
-console.log("Configurando las funciones de los botones...");
+//-- FUNCIONES DE RETROLLAMADA DE LOS BOTONES DE SELECCIÓN DE FUENTE
 
 //-- Función de retrollamada del botón de Seleccionar fuente 1
 play.onclick = () => {

@@ -2,6 +2,12 @@
 
 .boton_emision {
   background-color: #50FF4C;
+  text-align: center;
+}
+
+.boton_emergencia {
+  background-color: #FF1D1D;
+  text-align: center;
 }
 
 div {

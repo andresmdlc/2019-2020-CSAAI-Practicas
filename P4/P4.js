@@ -42,6 +42,7 @@ const boton_play1 = document.getElementById("boton_play1")
 const boton_play2 = document.getElementById("boton_play2")
 const boton_play3 = document.getElementById("boton_play3")
 const boton_play4 = document.getElementById("boton_play4")
+const boton_stop = document.getElementById("boton_stop")
 
 
 
@@ -79,3 +80,12 @@ boton_play3.onclick = () => {
   video2.classList.remove("bordecito");
   video3.classList.add("bordecito");
 };
+
+//-- Funcion de retrollamada del boton de parar
+boton_stop.onclick = () => {
+  video_emision.pause();
+
+  //-- Quitar la fuente de video, para que se muestre la
+  //-- imagen definida en el atributo poster
+  video_emision.src=null;
+}

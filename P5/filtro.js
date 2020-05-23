@@ -10,8 +10,10 @@ const deslizador_rojo = document.getElementById('deslizador_rojo');
 const deslizador_verde = document.getElementById('deslizador_verde');
 const deslizador_azul = document.getElementById('deslizador_azul');
 
-//-- Valor del deslizador_rojo
-const range_value = document.getElementById('range_value');
+//-- Valor de los deslizadores
+const range_value_rojo = document.getElementById('range_value_rojo');
+const range_value_verde = document.getElementById('range_value_verde');
+const range_value_azul = document.getElementById('range_value_azul');
 
 //-- Función de retrollamada de imagen cargada
 //-- La imagen no se carga instantaneamente, sino que
@@ -35,7 +37,7 @@ img.onload = function () {
 //-- Funcion de retrollamada del deslizador_rojo
 deslizador_rojo.oninput = () => {
   //-- Mostrar el nuevo valor del deslizador_rojo
-  range_value.innerHTML = deslizador_rojo.value;
+  range_value_rojo.innerHTML = deslizador_rojo.value;
 
   //-- Situar la imagen original en el canvas
   //-- No se han hecho manipulaciones todavia

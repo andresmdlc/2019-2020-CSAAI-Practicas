@@ -5,10 +5,10 @@ const canvas = document.getElementById('canvas');
 const img = document.getElementById('imagesrc');
 const ctx = canvas.getContext('2d');
 
-//-- Acceso al deslizador
-const deslizador = document.getElementById('deslizador');
+//-- Acceso al deslizador_rojo
+const deslizador_rojo = document.getElementById('deslizador_rojo');
 
-//-- Valor del deslizador
+//-- Valor del deslizador_rojo
 const range_value = document.getElementById('range_value');
 
 //-- Función de retrollamada de imagen cargada
@@ -30,10 +30,10 @@ img.onload = function () {
 };
 
 
-//-- Funcion de retrollamada del deslizador
-deslizador.oninput = () => {
-  //-- Mostrar el nuevo valor del deslizador
-  range_value.innerHTML = deslizador.value;
+//-- Funcion de retrollamada del deslizador_rojo
+deslizador_rojo.oninput = () => {
+  //-- Mostrar el nuevo valor del deslizador_rojo
+  range_value.innerHTML = deslizador_rojo.value;
 
   //-- Situar la imagen original en el canvas
   //-- No se han hecho manipulaciones todavia
@@ -46,10 +46,11 @@ deslizador.oninput = () => {
   let data = imgData.data
 
   //-- Obtener el umbral de rojo del desliador
-  umbral = deslizador.value
+  umbral = deslizador_rojo.value
 
   //-- Filtrar la imagen según el nuevo umbral
   //-- Se van recorriendo los píxeles de la imagen
+  //-- Se recorren los píxeles 0, 4, 8... porque ahí está el rojo
   for (let i = 0; i < data.length; i+=4) {
 
     //-- Si supera el umbral (valor máximo)

@@ -5,11 +5,17 @@
     <title>Filtro</title>
     <link rel="stylesheet" href="filtro.css">
     <script src="filtro.js" defer></script>
+    <script src="deslizador.js" defer></script>
   </head>
   <body>
     <p>Imagen original</p>
     <img src="logoURJC.png" id="imagesrc">
     <p>Imagen manipulada</p>
     <canvas id="canvas"></canvas>
+
+    <br>
+    <br>
+    <input type="range" id="deslizador" min="0" max="255" value="0"/>
+    <p id="display">00</p>
   </body>
 </html>

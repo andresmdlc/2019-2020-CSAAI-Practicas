@@ -87,5 +87,5 @@ boton_stop.onclick = () => {
 
   //-- Quitar la fuente de video, para que se muestre la
   //-- imagen definida en el atributo poster
-  video_emision.src=null;
+  video_emision.src = null;
 }

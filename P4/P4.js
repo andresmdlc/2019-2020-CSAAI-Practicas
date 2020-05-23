@@ -1,5 +1,5 @@
 console.log("Ejecutando JS...");
-console.log("Dibujando rectángulo...");
+console.log("Obteniendo los elementos de vídeo...");
 
 //----- Obtener elemento de video y configurarlo
 const video_emision = document.getElementById("video_emision")
@@ -20,3 +20,7 @@ video2.height=100;
 const video3 = document.getElementById("video3")
 video3.width=200;  //-- Tamaño de la pantalla de video
 video3.height=100;
+
+//-- Imagen estática a mostrar cuando el video no
+//-- ha arrancado
+video_emision.poster="https://github.com/myTeachingURJC/2019-2020-CSAAI/raw/master/L10/test.png";

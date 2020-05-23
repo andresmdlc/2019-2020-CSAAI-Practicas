@@ -38,35 +38,35 @@ video3.play();
 
 
 //-- Obtener los botones
-const play1 = document.getElementById("play1")
-const play2 = document.getElementById("play2")
-const play3 = document.getElementById("play3")
-const play4 = document.getElementById("play4")
+const boton_play1 = document.getElementById("boton_play1")
+const boton_play2 = document.getElementById("boton_play2")
+const boton_play3 = document.getElementById("boton_play3")
+const boton_play4 = document.getElementById("boton_play4")
 
 
 
 //-- FUNCIONES DE RETROLLAMADA DE LOS BOTONES DE SELECCIÓN DE FUENTE
 
 //-- Función de retrollamada del botón de Seleccionar fuente 1
-play1.onclick = () => {
+boton_play1.onclick = () => {
   console.log("Click!");
-  video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4"
-  video1.play1();
+  video_emision.src = video1.src
+  video_emision.play();
   //-- Añadir recuadro a la fuente 1
 };
 
 //-- Función de retrollamada del botón de Seleccionar fuente 2
-play2.onclick = () => {
+boton_play2.onclick = () => {
   console.log("Click!");
-  video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4"
-  video1.play2();
+  video_emision.src = video2.src
+  video_emision.play();
   //-- Añadir recuadro a la fuente 2
 };
 
 //-- Función de retrollamada del botón de Seleccionar fuente 3
-play3.onclick = () => {
+boton_play3.onclick = () => {
   console.log("Click!");
-  video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4"
-  video1.play3();
+  video_emision.src = video3.src
+  video_emision.play();
   //-- Añadir recuadro a la fuente 3
 };

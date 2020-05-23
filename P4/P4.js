@@ -27,4 +27,4 @@ console.log("Mostrando mensaje...");
 //-- Texto solido
 ctx.font = "25px Arial";
 ctx.fillStyle = 'red'
-ctx.fillText("Vídeo no encontrado", 10, 30);
+ctx.fillText("Ola ajjaj", 10, 30);

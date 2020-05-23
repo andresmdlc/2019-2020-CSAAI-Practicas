@@ -54,6 +54,8 @@ boton_play1.onclick = () => {
   video_emision.play();
   //-- Añadir recuadro a la fuente 1
   video1.classList.add("bordecito");
+  video2.classList.add("no_bordecito");
+  video3.classList.add("no_bordecito");
 };
 
 //-- Función de retrollamada del botón de Seleccionar fuente 2
@@ -62,6 +64,9 @@ boton_play2.onclick = () => {
   video_emision.src = video2.src
   video_emision.play();
   //-- Añadir recuadro a la fuente 2
+  video1.classList.add("no_bordecito");
+  video2.classList.add("bordecito");
+  video3.classList.add("no_bordecito");
 };
 
 //-- Función de retrollamada del botón de Seleccionar fuente 3
@@ -70,4 +75,7 @@ boton_play3.onclick = () => {
   video_emision.src = video3.src
   video_emision.play();
   //-- Añadir recuadro a la fuente 3
+  video1.classList.add("no_bordecito");
+  video2.classList.add("no_bordecito");
+  video3.classList.add("bordecito");
 };

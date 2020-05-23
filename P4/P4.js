@@ -53,6 +53,7 @@ boton_play1.onclick = () => {
   video_emision.src = video1.src
   video_emision.play();
   //-- Añadir recuadro a la fuente 1
+  video1.classList.add("bordecito");
 };
 
 //-- Función de retrollamada del botón de Seleccionar fuente 2

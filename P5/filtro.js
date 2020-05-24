@@ -1,5 +1,11 @@
 console.log("Ejecutando JS....")
 
+//-- Acceso a los botones
+const boton_img1 = document.getElementById("boton_img1")
+const boton_img2 = document.getElementById("boton_img2")
+const boton_filtro_grises = document.getElementById("boton_filtro_grises")
+const boton_filtro_colores = document.getElementById("boton_filtro_colores")
+
 //-- Obtener elementos del DOM
 const canvas = document.getElementById('canvas');
 var img_original = document.getElementById('img_original1')

@@ -33,24 +33,25 @@ img.onload = function () {
   console.log("Imagen lista...");
 };
 
+//-- Situar la imagen original en el canvas
+//-- No se han hecho manipulaciones todavia
+ctx.drawImage(img, 0,0);
+
+//-- Obtener la imagen del canvas en pixeles
+let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+//-- Obtener el array con todos los píxeles
+let data = imgData.data
+
+//-- Obtener el umbral de rojo del desliador
+umbral = deslizador_rojo.value
+
+
 
 //-- Funcion de retrollamada del deslizador_rojo
 deslizador_rojo.oninput = () => {
   //-- Mostrar el nuevo valor del deslizador_rojo
   range_value_rojo.innerHTML = deslizador_rojo.value;
-
-  //-- Situar la imagen original en el canvas
-  //-- No se han hecho manipulaciones todavia
-  ctx.drawImage(img, 0,0);
-
-  //-- Obtener la imagen del canvas en pixeles
-  let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-
-  //-- Obtener el array con todos los píxeles
-  let data = imgData.data
-
-  //-- Obtener el umbral de rojo del desliador
-  umbral = deslizador_rojo.value
 
   //-- Filtrar la imagen según el nuevo umbral
   //-- Se van recorriendo los píxeles de la imagen
@@ -72,19 +73,6 @@ deslizador_verde.oninput = () => {
   //-- Mostrar el nuevo valor del deslizador_verde
   range_value_verde.innerHTML = deslizador_verde.value;
 
-  //-- Situar la imagen original en el canvas
-  //-- No se han hecho manipulaciones todavia
-  ctx.drawImage(img, 0,0);
-
-  //-- Obtener la imagen del canvas en pixeles
-  let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-
-  //-- Obtener el array con todos los píxeles
-  let data = imgData.data
-
-  //-- Obtener el umbral de verde del desliador
-  umbral = deslizador_verde.value
-
   //-- Filtrar la imagen según el nuevo umbral
   //-- Se van recorriendo los píxeles de la imagen
   //-- Se recorren los píxeles 1, 5, 9... porque ahí está el verde
@@ -104,19 +92,6 @@ deslizador_verde.oninput = () => {
 deslizador_azul.oninput = () => {
   //-- Mostrar el nuevo valor del deslizador_azul
   range_value_azul.innerHTML = deslizador_azul.value;
-
-  //-- Situar la imagen original en el canvas
-  //-- No se han hecho manipulaciones todavia
-  ctx.drawImage(img, 0,0);
-
-  //-- Obtener la imagen del canvas en pixeles
-  let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-
-  //-- Obtener el array con todos los píxeles
-  let data = imgData.data
-
-  //-- Obtener el umbral de azul del desliador
-  umbral = deslizador_azul.value
 
   //-- Filtrar la imagen según el nuevo umbral
   //-- Se van recorriendo los píxeles de la imagen

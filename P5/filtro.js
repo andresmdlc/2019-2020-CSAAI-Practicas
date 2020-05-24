@@ -5,6 +5,10 @@ const canvas = document.getElementById('canvas');
 const img = document.getElementById('imagesrc');
 const ctx = canvas.getContext('2d');
 
+//-- Obtener los botones
+const boton_grises = document.getElementById("boton_grises")
+const boton_colores = document.getElementById("boton_colores")
+
 //-- Acceso a los deslizadores
 const deslizador_rojo = document.getElementById('deslizador_rojo');
 const deslizador_verde = document.getElementById('deslizador_verde');
@@ -33,79 +37,72 @@ img.onload = function () {
   console.log("Imagen lista...");
 };
 
-//-- Situar la imagen original en el canvas
-//-- No se han hecho manipulaciones todavia
-ctx.drawImage(img, 0,0);
-
-//-- Obtener la imagen del canvas en pixeles
-let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-
-//-- Obtener el array con todos los píxeles
-let data_array = imgData.data
-
-//-- Obtener el umbral de rojo del desliador
-umbral = deslizador_rojo.value
-
-
+boton_colores.onclick = () => {
+  //-- Situar la imagen original en el canvas
+  //-- No se han hecho manipulaciones todavia
+  ctx.drawImage(img, 0,0);
+  
+  ctx.putImageData(umbrales(), 0, 0);
+}
 
 //-- Funcion de retrollamada del deslizador_rojo
 deslizador_rojo.oninput = () => {
-  //-- Mostrar el nuevo valor del deslizador_rojo
-  range_value_rojo.innerHTML = deslizador_rojo.value;
-
-  //-- Filtrar la imagen según el nuevo umbral
-  //-- Se van recorriendo los píxeles de la imagen
-  //-- Se recorren los píxeles 0, 4, 8... porque ahí está el rojo
-  for (let i = 0; i < data_array.length; i+=4) {
-
-    //-- Si supera el umbral (valor máximo)
-    //-- se le asigna dicho nivel de intensidad
-    if (data_array[i] > umbral)
-      data_array[i] = umbral;
-  }
-
-  //-- Poner la imagen modificada en el canvas
-  ctx.putImageData(imgData, 0, 0);
+  umbrales();
 }
 
 //-- Funcion de retrollamada del deslizador_verde
 deslizador_verde.oninput = () => {
-  //-- Mostrar el nuevo valor del deslizador_verde
-  range_value_verde.innerHTML = deslizador_verde.value;
-
-  //-- Filtrar la imagen según el nuevo umbral
-  //-- Se van recorriendo los píxeles de la imagen
-  //-- Se recorren los píxeles 1, 5, 9... porque ahí está el verde
-  for (let i = 1; i < data_array.length; i+=4) {
-
-    //-- Si supera el umbral (valor máximo)
-    //-- se le asigna dicho nivel de intensidad
-    if (data_array[i] > umbral)
-      data_array[i] = umbral;
-  }
-
-  //-- Poner la imagen modificada en el canvas
-  ctx.putImageData(imgData, 0, 0);
+  umbrales();
 }
 
-//-- Funcion de retrollamada del deslizador_azul
+//-- Funcion de retrollamada del deslizador_verde
 deslizador_azul.oninput = () => {
-  //-- Mostrar el nuevo valor del deslizador_azul
+  umbrales();
+}
+
+function umbrales() {
+  //-- Mostrar el nuevo valor de los deslizadores
+  range_value_rojo.innerHTML = deslizador_rojo.value;
+  range_value_verde.innerHTML = deslizador_verde.value;
   range_value_azul.innerHTML = deslizador_azul.value;
+
+  //-- Situar la imagen original en el canvas
+  //-- No se han hecho manipulaciones todavia
+  ctx.drawImage(img, 0,0);
+
+  //-- Obtener la imagen del canvas en pixeles
+  let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+  //-- Obtener el array con todos los píxeles
+  let data_array = imgData.data
+
+  //-- Obtener el umbral de rojo del desliador
+  umbral_rojo = deslizador_rojo.value
+  umbral_verde = deslizador_verde.value
+  umbral_azul = deslizador_azul.value
 
   //-- Filtrar la imagen según el nuevo umbral
   //-- Se van recorriendo los píxeles de la imagen
-  //-- Se recorren los píxeles 2, 6, 10... porque ahí está el azul
-  for (let i = 2; i < data_array.length; i+=4) {
+  for (let i = 0; i < data_array.length; i+=4) {
 
     //-- Si supera el umbral (valor máximo)
     //-- se le asigna dicho nivel de intensidad
-    if (data_array[i] > umbral)
-      data_array[i] = umbral;
+    //-- Se miran los píxeles 0, 4, 8... porque ahí está el rojo
+    if (data_array[i] > umbral_rojo)
+      data_array[i] = umbral_rojo;
+
+    //-- Se miran los píxeles 1, 5, 9... porque ahí está el verde
+    if (data_array[i+1] > umbral_verde)
+      data_array[i+1] = umbral_verde;
+
+    //-- Se miran los píxeles 2, 6, 10... porque ahí está el azul
+    if (data_array[i+2] > umbral_azul)
+      data_array[i+2] = umbral_azul;
   }
 
   //-- Poner la imagen modificada en el canvas
   ctx.putImageData(imgData, 0, 0);
+  return imgData;
 }
 
 console.log("Fin...");

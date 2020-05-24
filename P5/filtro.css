@@ -1,9 +1,13 @@
 body {
-  background-color: grey;
+  background-color: white;
 }
 
+.orig {
+  text-align: center;
+  display: inline-table;
+}
 
-.originales {
+.desliz {
   text-align: center;
   display: inline-table;
 }

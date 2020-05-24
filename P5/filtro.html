@@ -7,6 +7,8 @@
     <script src="filtro.js" defer></script>
   </head>
   <body>
+
+    <!-- Imágenes originales y canvas -->
     <div>
       <p>Imagen original</p>
       <img src="FPGA.jpg" id="imagen_original">
@@ -21,6 +23,16 @@
       <img src="FPGA.jpg" id="imagesrc">
     </div>
 
+    <div>
+      <button type="button" id="boton_img1" class="boton_emision">
+        Escala de Grises
+      </button>
+      <button type="button" id="boton_img1" class="boton_emision">
+        Umbrales Colores RGB
+      </button>
+    </div>
+
+    <!-- Deslizadores RGB -->
     <br>
     <p>Establece el umbral de rojo:</p>
     <input type="range" id="deslizador_rojo" min="0" max="255" value="255"/>

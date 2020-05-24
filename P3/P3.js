@@ -12,6 +12,12 @@ console.log(`canvas: Anchura: ${canvas.width}, Altura: ${canvas.height}`);
 //-- Obtener el contexto para pintar en el canvas
 const ctx = canvas.getContext("2d");
 
+//-- Obtener Sonidos
+const sonido_raqueta = new Audio("pong-raqueta.mp3");
+const sonido_rebote = new Audio("pong-rebote.mp3");
+const sonido_tanto = new Audio("pong-tanto.mp3");
+const sonido_what = new Audio("pong-what.mp3");
+
 //-- Pintar todos los objetos en el canvas
 function draw() {
 
@@ -59,6 +65,14 @@ function animacion()
     //-- Hay colisión. Punto para el jugador izquierdo
     tanteo_izquierdo++;
 
+    //-- Reproducir sonido
+    sonido_tanto.currentTime = 0;
+    sonido_tanto.play();
+
+    //-- Reproducir sonido
+    sonido_what.currentTime = 0;
+    sonido_what.play();
+
     //-- Llevar bola a su posicion inicial
     bola.init();
 
@@ -72,6 +86,14 @@ function animacion()
   if (bola.x <= 0) {
     //-- Hay colisión. Punto para el jugador derecho
     tanteo_derecho++;
+
+    //-- Reproducir sonido
+    sonido_tanto.currentTime = 0;
+    sonido_tanto.play();
+
+    //-- Reproducir sonido
+    sonido_what.currentTime = 0;
+    sonido_what.play();
 
     //-- Llevar bola a su posicion inicial
     bola.init();
@@ -87,6 +109,10 @@ function animacion()
   if (bola.y >= canvas.height) {
     //-- Hay colisión. Cambiar el signo de la bola
     bola.vy = bola.vy * -1;
+
+    //-- Reproducir sonido
+    sonido_rebote.currentTime = 0;
+    sonido_rebote.play();
   }
 
   //-- Comprobar si la bola ha alcanzado el límite inferior
@@ -95,6 +121,10 @@ function animacion()
   if (bola.y <= 0) {
     //-- Hay colisión. Cambiar el signo de la bola
     bola.vy = bola.vy * -1;
+
+    //-- Reproducir sonido
+    sonido_rebote.currentTime = 0;
+    sonido_rebote.play();
   }
 
 
@@ -104,6 +134,10 @@ function animacion()
       bola.y >= raqI.y && bola.y <=(raqI.y + raqI.height)) {
     bola.vx = bola.vx * -1;
     bola.vy = bola.vy + raqI.v;
+
+    //-- Reproducir sonido
+    sonido_raqueta.currentTime = 0;
+    sonido_raqueta.play();
   }
 
   //-- Comprobar si hay colisión con la raqueta derecha
@@ -111,6 +145,10 @@ function animacion()
       bola.y >= raqD.y && bola.y <=(raqD.y + raqD.height)) {
     bola.vx = bola.vx * -1;
     bola.vy = bola.vy + raqD.v;
+
+    //-- Reproducir sonido
+    sonido_raqueta.currentTime = 0;
+    sonido_raqueta.play();
   }
 
   //-- Actualizar coordenada x de la bola, en funcion de
@@ -166,6 +204,11 @@ window.onkeydown = (e) => {
       //-- Darle velocidad
       bola.vx = bola.vx_ini;
       bola.vy = bola.vy_ini;
+
+      //-- Reproducir sonido
+      sonido_raqueta.currentTime = 0;
+      sonido_raqueta.play();
+
     default:
   }
 }

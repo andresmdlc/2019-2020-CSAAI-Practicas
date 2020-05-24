@@ -58,21 +58,24 @@ function draw() {
 
   //------ Dibujar el tanteo
   ctx.font = "100px Arial";
-  ctx.fillStyle = "white";
+  ctx.fillStyle = "orange";
   ctx.fillText(tanteo_izquierdo, 200, 80);
+
+  ctx.font = "100px Arial";
+  ctx.fillStyle = "limegreen";
   ctx.fillText(tanteo_derecho, 340, 80);
 
   //-- Dibujar el texto de sacar
   if (estado == ESTADO.SAQUE) {
     ctx.font = "40px Arial";
-    ctx.fillStyle = "yellow";
+    ctx.fillStyle = "aqua";
     ctx.fillText("Saca!", 30, 350);
   }
 
   //-- Dibujar el texto de comenzar
   if (estado == ESTADO.INIT) {
     ctx.font = "40px Arial";
-    ctx.fillStyle = "green";
+    ctx.fillStyle = "aqua";
     ctx.fillText("Pulsa el botón START", 40, 350);
   }
 }
@@ -200,6 +203,8 @@ const bola = new Bola(ctx);
 //-- Crear las raquetas
 const raqI = new Raqueta(ctx);
 const raqD = new Raqueta(ctx);
+
+raqI.fillStyle='red';
 
 //-- Cambiar las coordenadas de la raqueta derecha
 raqD.x_ini = 540;

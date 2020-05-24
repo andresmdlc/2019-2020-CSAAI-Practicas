@@ -30,7 +30,7 @@ class Bola {
   draw() {
     //----- Dibujar la Bola
     this.ctx.beginPath();
-    this.ctx.fillStyle='white';
+    this.ctx.fillStyle='yellow';
 
     //-- x,y, anchura, altura
     this.ctx.rect(this.x, this.y, this.size, this.size);

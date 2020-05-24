@@ -86,6 +86,7 @@ function funcion_colores() {
   ctx.putImageData(imgData, 0, 0);
 }
 
+//-- Filtro Colores usando los deslizadores
 boton_filtro_colores.onclick = () => {
   funcion_colores();
 }

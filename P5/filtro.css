@@ -2,6 +2,13 @@
   display:none;
 }
 
+/* Estilo para la clase boton_emision */
+
+.boton_emision {
+  background-color: #50FF4C;
+  text-align: center;
+}
+
 div {
   text-align: center;
   display: inline-table;

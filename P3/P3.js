@@ -18,11 +18,25 @@ const sonido_rebote = new Audio("pong-rebote.mp3");
 const sonido_tanto = new Audio("pong-tanto.mp3");
 const sonido_what = new Audio("pong-what.mp3");
 
+//-- Estados del juego
+const ESTADO = {
+  INIT: 0,
+  SAQUE: 1,
+  JUGANDO: 2,
+}
+
+//-- Variable de estado
+//-- Arrancamos desde el estado inicial
+let estado = ESTADO.INIT;
+
 //-- Pintar todos los objetos en el canvas
 function draw() {
 
-  //-- Dibujar la bola y las raquetas
-  bola.draw();
+  if (estado == ESTADO.JUGANDO) {
+    bola.draw();
+  }
+
+  //-- Dibujar las raquetas
   raqI.draw();
   raqD.draw();
 
@@ -47,6 +61,20 @@ function draw() {
   ctx.fillStyle = "white";
   ctx.fillText(tanteo_izquierdo, 200, 80);
   ctx.fillText(tanteo_derecho, 340, 80);
+
+  //-- Dibujar el texto de sacar
+  if (estado == ESTADO.SAQUE) {
+    ctx.font = "40px Arial";
+    ctx.fillStyle = "yellow";
+    ctx.fillText("Saca!", 30, 350);
+  }
+
+  //-- Dibujar el texto de comenzar
+  if (estado == ESTADO.INIT) {
+    ctx.font = "40px Arial";
+    ctx.fillStyle = "green";
+    ctx.fillText("Pulsa el botón START", 40, 350);
+  }
 }
 
 //---- Bucle principal de la animación
@@ -62,6 +90,8 @@ function animacion()
   //-- Comprobar si la bola ha alcanzado el límite derecho
   //-- Si es así, punto para el jugador izquierdo
   if (bola.x >= canvas.width) {
+    estado = ESTADO.SAQUE;
+
     //-- Hay colisión. Punto para el jugador izquierdo
     tanteo_izquierdo++;
 
@@ -84,6 +114,8 @@ function animacion()
   //-- Comprobar si la bola ha alcanzado el límite izquierdo
   //-- Si es así, punto para el jugador derecho
   if (bola.x <= 0) {
+    estado = ESTADO.SAQUE;
+
     //-- Hay colisión. Punto para el jugador derecho
     tanteo_derecho++;
 
@@ -184,6 +216,11 @@ setInterval(()=>{
 //-- Retrollamada de las teclas
 window.onkeydown = (e) => {
 
+  //-- En el estado inicial no se
+  //-- hace caso de las teclas
+  if (estado == ESTADO.INIT)
+    return;
+
   switch (e.key) {
     case "q":
       raqI.v = raqI.v_ini * -1;
@@ -198,17 +235,25 @@ window.onkeydown = (e) => {
       raqD.v = raqD.v_ini;
       break;
     case " ":
-      //-- Llevar bola a su posicion inicial
-      bola.init();
 
-      //-- Darle velocidad
-      bola.vx = bola.vx_ini;
-      bola.vy = bola.vy_ini;
+      //-- El saque solo funciona en el estado de SAQUE
+      if (estado == ESTADO.SAQUE) {
+        //-- Llevar bola a su posicion inicial
+        bola.init();
 
-      //-- Reproducir sonido
-      sonido_raqueta.currentTime = 0;
-      sonido_raqueta.play();
+        //-- Darle velocidad
+        bola.vx = bola.vx_ini;
+        bola.vy = bola.vy_ini;
 
+        //-- Reproducir sonido
+        sonido_raqueta.currentTime = 0;
+        sonido_raqueta.play();
+
+        //-- Cambiar al estado de jugando!
+        estado = ESTADO.JUGANDO;
+
+        return false;
+      }
     default:
   }
 }
@@ -223,4 +268,23 @@ window.onkeyup = (e) => {
   if (e.key == "p" || e.key == "l") {
     raqD.v = 0;
   }
+}
+
+//-- Botón de arranque
+const start = document.getElementById("start");
+
+start.onclick = () => {
+  estado = ESTADO.SAQUE;
+  console.log("SAQUE!");
+  canvas.focus();
+}
+
+//-- Boton de pause
+const pause = document.getElementById("pause");
+
+pause.onclick = () => {
+  //-- Volver al estado inicial
+  estado = ESTADO.INIT;
+  bola.init();
+  start.disabled = false;
 }

@@ -6,4 +6,11 @@ body {
 /* Estilo para el canvas: Negro */
 #canvas {
   background-color: black;
+  margin: 50px;
+}
+
+div {
+  margin: 33px;
+  text-align: center;
+  display: inline-table;
 }

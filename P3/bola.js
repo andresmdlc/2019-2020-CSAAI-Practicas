@@ -30,7 +30,7 @@ class Bola {
   draw() {
     //----- Dibujar la Bola
     this.ctx.beginPath();
-    this.ctx.fillStyle='yellow';
+    this.ctx.fillStyle='white';
 
     //-- x,y, anchura, altura
     this.ctx.rect(this.x, this.y, this.size, this.size);
@@ -41,6 +41,8 @@ class Bola {
     //-- Inicializa la bola: A su posicion inicial
     this.x = this.x_ini;
     this.y = this.y_ini;
+    this.vx = 0;
+    this.vy = 0;
   }
 
   update() {

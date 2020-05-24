@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
+
   <head>
     <meta charset="utf-8">
     <title>Filtro</title>
     <link rel="stylesheet" href="filtro.css">
     <script src="filtro.js" defer></script>
   </head>
+
   <body>
-    <p>Imagen original</p>
-    <img src="img_pollito.jpg" id="imagesrc">
+
+    <div>
+      <p>Imagen original 1</p>
+      <img src="img_gatete.jpg" id="imagesrc" width="392" height="257">
+      <br>
+      <button id="boton_img1">Seleccionar imagen 1</button>
+    </div>
+
+    <div>
+      <p>Imagen original 2</p>
+      <img src="img_pollito.jpg" id="imagesrc" width="392" height="257">
+      <br>
+      <button id="boton_img2">Seleccionar imagen 2</button>
+    </div>
+
+
     <p>Imagen manipulada</p>
     <canvas id="canvas"></canvas>
+
   </body>
+
 </html>

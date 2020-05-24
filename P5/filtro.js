@@ -15,8 +15,8 @@ img.onload = function () {
 
   //-- Se establece como tamaño del canvas el mismo
   //-- que el de la imagen original
-  canvas.width = img.width;
-  canvas.height = img.height;
+  canvas.width = 800;
+  canvas.height = 525;
 
   //-- Situar la imagen original en el canvas
   //-- No se han hecho manipulaciones todavia

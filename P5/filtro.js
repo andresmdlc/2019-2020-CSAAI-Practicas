@@ -2,7 +2,19 @@ console.log("Ejecutando JS....")
 
 //-- Obtener elementos del DOM
 const canvas = document.getElementById('canvas');
-const img_original = document.getElementById('img_original1')
+var img_original = document.getElementById('img_original1')
+
+//-- El usuario decide la imagen que se carga
+boton_img1.onclick = () => {
+  img_original = document.getElementById('img_original1');
+  ctx.drawImage(img_original, 0, 0, 800, 525);
+}
+
+boton_img2.onclick = () => {
+  img_original = document.getElementById('img_original2');
+  ctx.drawImage(img_original, 0, 0, 800, 525);
+}
+
 const ctx = canvas.getContext('2d');
 
 //-- Acceso a los deslizadores

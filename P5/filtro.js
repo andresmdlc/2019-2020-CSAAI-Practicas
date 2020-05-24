@@ -2,14 +2,14 @@ console.log("Ejecutando JS....")
 
 //-- Obtener elementos del DOM
 const canvas = document.getElementById('canvas');
-const img = document.getElementById('imagesrc')
+const img_original = document.getElementById('img_original1')
 const ctx = canvas.getContext('2d');
 
 //-- Función de retrollamada de imagen cargada
 //-- La imagen no se carga instantaneamente, sino que
 //-- lleva un tiempo. Sólo podemos acceder a ella una vez
 //-- que esté totalmente cargada
-img.onload = function () {
+img_original.onload = function () {
 
   console.log("Imagen cargada");
 
@@ -20,7 +20,7 @@ img.onload = function () {
 
   //-- Situar la imagen original en el canvas
   //-- No se han hecho manipulaciones todavia
-  ctx.drawImage(img, 0,0);
+  ctx.drawImage(img_original, 0,0);
 };
 
 console.log("Fin...");

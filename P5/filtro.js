@@ -41,7 +41,7 @@ ctx.drawImage(img, 0,0);
 let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
 //-- Obtener el array con todos los píxeles
-let data = imgData.data
+let data_array = imgData.data
 
 //-- Obtener el umbral de rojo del desliador
 umbral = deslizador_rojo.value
@@ -56,12 +56,12 @@ deslizador_rojo.oninput = () => {
   //-- Filtrar la imagen según el nuevo umbral
   //-- Se van recorriendo los píxeles de la imagen
   //-- Se recorren los píxeles 0, 4, 8... porque ahí está el rojo
-  for (let i = 0; i < data.length; i+=4) {
+  for (let i = 0; i < data_array.length; i+=4) {
 
     //-- Si supera el umbral (valor máximo)
     //-- se le asigna dicho nivel de intensidad
-    if (data[i] > umbral)
-      data[i] = umbral;
+    if (data_array[i] > umbral)
+      data_array[i] = umbral;
   }
 
   //-- Poner la imagen modificada en el canvas
@@ -76,12 +76,12 @@ deslizador_verde.oninput = () => {
   //-- Filtrar la imagen según el nuevo umbral
   //-- Se van recorriendo los píxeles de la imagen
   //-- Se recorren los píxeles 1, 5, 9... porque ahí está el verde
-  for (let i = 1; i < data.length; i+=4) {
+  for (let i = 1; i < data_array.length; i+=4) {
 
     //-- Si supera el umbral (valor máximo)
     //-- se le asigna dicho nivel de intensidad
-    if (data[i] > umbral)
-      data[i] = umbral;
+    if (data_array[i] > umbral)
+      data_array[i] = umbral;
   }
 
   //-- Poner la imagen modificada en el canvas
@@ -96,12 +96,12 @@ deslizador_azul.oninput = () => {
   //-- Filtrar la imagen según el nuevo umbral
   //-- Se van recorriendo los píxeles de la imagen
   //-- Se recorren los píxeles 2, 6, 10... porque ahí está el azul
-  for (let i = 2; i < data.length; i+=4) {
+  for (let i = 2; i < data_array.length; i+=4) {
 
     //-- Si supera el umbral (valor máximo)
     //-- se le asigna dicho nivel de intensidad
-    if (data[i] > umbral)
-      data[i] = umbral;
+    if (data_array[i] > umbral)
+      data_array[i] = umbral;
   }
 
   //-- Poner la imagen modificada en el canvas

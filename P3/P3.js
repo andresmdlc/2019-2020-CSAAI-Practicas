@@ -45,7 +45,7 @@ function draw() {
 
   //-- Estilo de la linea: discontinua
   //-- Trazos de 10 pixeles, y 10 de separacion
-  ctx.setLineDash([10, 10]);
+  ctx.setLineDash([4, 8]);
   ctx.strokeStyle = 'white';
   ctx.lineWidth = 2;
   //-- Punto superior de la linea. Su coordenada x está en la mitad

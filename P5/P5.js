@@ -273,17 +273,24 @@ function funcion_especular() {
 
   //-- Obtener la imagen del canvas en pixeles
   var imgData6 = ctx.getImageData(0, 0, 800, 525);
+  var imgEspecular = ctx.getImageData(0, 0, 800, 525);
 
   //-- Obtener el array con todos los píxeles
   var data6 = imgData6.data
+  var dataEspecular = imgEspecular.data
 
   //-- Ponemos a cero el canal verde y el canal azul
-  for (let i = 0; i < data6.length; i+=4) {
+  for (let i = 0; i < data6.length; i+=800) {
+    for (let j = 0; j < 800; j+=1) {
 
+      //-- Una vez estamos en la fila i, el pixel j se lo asignamos
+      //-- al opuesto de esa fila (800-j)
+      //-- se lo asignamos al inverso de dataEspecular
+      dataEspecular[i+800-j] = data6[i+j];
   }
 
   //-- Poner la imagen modificada en el canvas
-  ctx.putImageData(imgData6, 0, 0);
+  ctx.putImageData(imgEspecular, 0, 0);
 
   //-- Texto solido
   ctx.font = "25px Arial";

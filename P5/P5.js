@@ -8,6 +8,7 @@ const boton_filtro_colores = document.getElementById("boton_filtro_colores")
 const boton_filtro_nuclear = document.getElementById("boton_filtro_nuclear")
 const boton_filtro_demoniaco = document.getElementById("boton_filtro_demoniaco")
 const boton_filtro_pincel = document.getElementById("boton_filtro_pincel")
+const boton_filtro_especular = document.getElementById("boton_filtro_especular")
 
 //-- Obtener elementos del DOM
 const canvas = document.getElementById('canvas');
@@ -44,6 +45,7 @@ const ESTADO = {
   NUCLEAR: 3,
   DEMONIACO: 4,
   PINCEL: 5,
+  ESPECULAR: 6,
 }
 
 //-- Variable de estado
@@ -263,6 +265,33 @@ function funcion_nuclear() {
 
 }
 
+function funcion_especular() {
+
+  //-- Situar la imagen original en el canvas
+  //-- No se han hecho manipulaciones todavia
+  ctx.drawImage(img_original, 0,0);
+
+  //-- Obtener la imagen del canvas en pixeles
+  var imgData6 = ctx.getImageData(0, 0, 800, 525);
+
+  //-- Obtener el array con todos los píxeles
+  var data6 = imgData6.data
+
+  //-- Ponemos a cero el canal verde y el canal azul
+  for (let i = 0; i < data6.length; i+=4) {
+
+  }
+
+  //-- Poner la imagen modificada en el canvas
+  ctx.putImageData(imgData6, 0, 0);
+
+  //-- Texto solido
+  ctx.font = "25px Arial";
+  ctx.fillStyle = 'aqua'
+  ctx.fillText("Filtro Imagen Especular", 10, 30);
+
+}
+
 
 
 //-- Acciones de los botones que llaman a las funciones
@@ -347,6 +376,18 @@ boton_filtro_pincel.onclick = () => {
   ctx.font = "25px Arial";
   ctx.fillStyle = 'aqua'
   ctx.fillText("Filtro Pincel", 10, 30);
+}
+
+//-- Filtro Imagen Especular
+boton_filtro_especular.onclick = () => {
+  estado = ESTADO.ESPECULAR;
+
+  funcion_especular();
+
+  //-- Texto solido
+  ctx.font = "25px Arial";
+  ctx.fillStyle = 'aqua'
+  ctx.fillText("Filtro Imagen Especular", 10, 30);
 }
 
 

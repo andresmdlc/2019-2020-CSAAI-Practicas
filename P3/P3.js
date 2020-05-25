@@ -57,24 +57,24 @@ function draw() {
   ctx.stroke();
 
   //------ Dibujar el tanteo
-  ctx.font = "100px Arial";
+  ctx.font = "100px courier";
   ctx.fillStyle = "orange";
   ctx.fillText(tanteo_izquierdo, 500, 100);
 
-  ctx.font = "100px Arial";
+  ctx.font = "100px courier";
   ctx.fillStyle = "limegreen";
   ctx.fillText(tanteo_derecho, 725, 100);
 
   //-- Dibujar el texto de sacar
   if (estado == ESTADO.SAQUE) {
-    ctx.font = "40px Arial";
+    ctx.font = "40px courier";
     ctx.fillStyle = "aqua";
     ctx.fillText("Saca!", 100, 400);
   }
 
   //-- Dibujar el texto de comenzar
   if (estado == ESTADO.INIT) {
-    ctx.font = "40px Arial";
+    ctx.font = "40px courier";
     ctx.fillStyle = "aqua";
     ctx.fillText("Pulsa el botón START", 40, 650);
   }

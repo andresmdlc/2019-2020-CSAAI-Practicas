@@ -113,7 +113,7 @@ function funcion_colores() {
   //-- Texto solido
   ctx.font = "25px Arial";
   ctx.fillStyle = 'aqua'
-  ctx.fillText("Filtro Colores", 10, 30);
+  ctx.fillText("Filtro de Color por Umbrales", 10, 30);
 }
 
 function funcion_grises() {
@@ -145,7 +145,7 @@ function funcion_grises() {
   //-- Texto solido
   ctx.font = "25px Arial";
   ctx.fillStyle = 'aqua'
-  ctx.fillText("Filtro Grises", 10, 30);
+  ctx.fillText("Filtro Escala de Grises", 10, 30);
 
 }
 
@@ -372,7 +372,7 @@ function funcion_bocaabajo() {
 
 //-- Acciones de los botones que llaman a las funciones
 
-//-- Filtro Grises
+//-- Filtro Escala de Grises
 boton_filtro_grises.onclick = () => {
   estado = ESTADO.GRISES;
 
@@ -381,10 +381,10 @@ boton_filtro_grises.onclick = () => {
   //-- Texto solido
   ctx.font = "25px Arial";
   ctx.fillStyle = 'aqua'
-  ctx.fillText("Filtro Grises", 10, 30);
+  ctx.fillText("Filtro Escala de Grises", 10, 30);
 }
 
-//-- Filtro Colores usando los deslizadores
+//-- Filtro de Color por Umbrales usando los deslizadores
 boton_filtro_colores.onclick = () => {
   estado = ESTADO.COLORES;
 
@@ -393,7 +393,7 @@ boton_filtro_colores.onclick = () => {
   //-- Texto solido
   ctx.font = "25px Arial";
   ctx.fillStyle = 'aqua'
-  ctx.fillText("Filtro Colores", 10, 30);
+  ctx.fillText("Filtro de Color por Umbrales", 10, 30);
 }
 
 //-- Funcion de retrollamada de los deslizadores

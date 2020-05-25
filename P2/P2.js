@@ -10,6 +10,15 @@ clear = document.getElementById("clear")
 //-- de la clase digito
 digito = document.getElementsByClassName("digito")
 
+//-- Estados de la calculadora
+const ESTADO = {
+  INIT: 0,
+  OP1: 1,
+  OPERATION: 2,
+  OP2_INIT: 3,
+  OP2: 4,
+}
+
 for (i=0; i<digito.length; i++) {
   digito[i].onclick = (ev) => {
     display1.innerHTML += ev.target.value;
@@ -34,4 +43,5 @@ igual.onclick = () => {
 //-- Poner a cero la expresion
 clear.onclick = () => {
   display1.innerHTML = "0";
+  display2.innerHTML = "0";
 }

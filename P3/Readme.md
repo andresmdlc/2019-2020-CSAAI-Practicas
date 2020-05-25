@@ -9,3 +9,5 @@ Los ficheros de la práctica 3 son:
   pong-rebote.mp3
   pong-tanto.mp3
   pong-what.mp3
+
+Nota: está todo en su sitio si se pone a pantalla completa

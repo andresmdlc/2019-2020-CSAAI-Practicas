@@ -345,15 +345,15 @@ function funcion_bocaabajo() {
     data6[data6.length-i] = aux;
 
     //-- No importa machacar el auxiliar porque ya lo puse donde quería
-    let aux = data6[i+1];
+    aux = data6[i+1];
     data6[i+1] = data6[data6.length-i+1];
     data6[data6.length-i+1] = aux;
 
-    let aux = data6[i+2];
+    aux = data6[i+2];
     data6[i+2] = data6[data6.length-i+2];
     data6[data6.length-i+2] = aux;
 
-    let aux = data6[i+3];
+    aux = data6[i+3];
     data6[i+3] = data6[data6.length-i+3];
     data6[data6.length-i+3] = aux;
   }

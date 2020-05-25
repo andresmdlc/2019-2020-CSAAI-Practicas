@@ -107,15 +107,24 @@ boton_filtro_colores.onclick = () => {
 
 //-- Funcion de retrollamada de los deslizadores
 deslizador_rojo.oninput = () => {
-  funcion_colores();
+  //-- Se permiten los deslizadores sólo con la función Colores
+  if (estado == ESTADO.COLORES) {
+    funcion_colores();
+  }
 }
 
 deslizador_verde.oninput = () => {
-  funcion_colores();
+  //-- Se permiten los deslizadores sólo con la función Colores
+  if (estado == ESTADO.COLORES) {
+    funcion_colores();
+  }
 }
 
 deslizador_azul.oninput = () => {
-  funcion_colores();
+  //-- Se permiten los deslizadores sólo con la función Colores
+  if (estado == ESTADO.COLORES) {
+    funcion_colores();
+  }
 }
 
 

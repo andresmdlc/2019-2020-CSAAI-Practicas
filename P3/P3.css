@@ -14,17 +14,20 @@ body {
 
 #izquierda {
   text-align: left;
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: 250px;
+  margin-right: 242px;
+  font-family: courier;
 }
 
 #derecha {
   text-align: right;
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: 258px;
+  margin-right: 250px;
+  font-family: courier;
 }
 
 div {
   text-align: center;
   display: inline-table;
+  font-family: courier;
 }

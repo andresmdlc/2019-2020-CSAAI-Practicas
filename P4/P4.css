@@ -16,6 +16,10 @@ body {
   text-align: center;
 }
 
+.boton_emergencia {
+  margin-top: 30px;
+}
+
 div {
   text-align: center;
   display: inline-table;

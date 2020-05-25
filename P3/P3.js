@@ -63,7 +63,7 @@ function draw() {
 
   ctx.font = "100px courier";
   ctx.fillStyle = "limegreen";
-  ctx.fillText(tanteo_derecho, 725, 100);
+  ctx.fillText(tanteo_derecho, 717, 100);
 
   //-- Dibujar el texto de sacar
   if (estado == ESTADO.SAQUE) {

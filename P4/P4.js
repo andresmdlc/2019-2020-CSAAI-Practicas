@@ -53,8 +53,6 @@ const ESTADO = {
   BUCLE: 3,
 }
 
-
-
 function funcion_estandar() {
   video1.play();
   video2.play();
@@ -91,9 +89,16 @@ boton_modo_bucle.onclick = () => {
 
 //-- Función de retrollamada del botón de Seleccionar fuente 1
 boton_play1.onclick = () => {
+
+  if (estado == ESTADO.AUTOMATICO) {
+    //-- Al apretar el pulsador de modo manual, se vuelve al modo normal
+    estado = ESTADO.ESTANDAR;
+  }
+
   console.log("Click!");
   video_emision.src = video1.src
   video_emision.play();
+
   //-- Añadir recuadro a la fuente 1
   video1.classList.add("bordecito");
   video2.classList.remove("bordecito");
@@ -102,9 +107,16 @@ boton_play1.onclick = () => {
 
 //-- Función de retrollamada del botón de Seleccionar fuente 2
 boton_play2.onclick = () => {
+
+  if (estado == ESTADO.AUTOMATICO) {
+    //-- Al apretar el pulsador de modo manual, se vuelve al modo normal
+    estado = ESTADO.ESTANDAR;
+  }
+
   console.log("Click!");
   video_emision.src = video2.src
   video_emision.play();
+
   //-- Añadir recuadro a la fuente 2
   video1.classList.remove("bordecito");
   video2.classList.add("bordecito");
@@ -113,9 +125,16 @@ boton_play2.onclick = () => {
 
 //-- Función de retrollamada del botón de Seleccionar fuente 3
 boton_play3.onclick = () => {
+
+  if (estado == ESTADO.AUTOMATICO) {
+    //-- Al apretar el pulsador de modo manual, se vuelve al modo normal
+    estado = ESTADO.ESTANDAR;
+  }
+
   console.log("Click!");
   video_emision.src = video3.src
   video_emision.play();
+
   //-- Añadir recuadro a la fuente 3
   video1.classList.remove("bordecito");
   video2.classList.remove("bordecito");

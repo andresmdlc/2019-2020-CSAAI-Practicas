@@ -5,6 +5,7 @@ const boton_img1 = document.getElementById("boton_img1")
 const boton_img2 = document.getElementById("boton_img2")
 const boton_filtro_grises = document.getElementById("boton_filtro_grises")
 const boton_filtro_colores = document.getElementById("boton_filtro_colores")
+const boton_filtro_demoniaco = document.getElementById("boton_filtro_demoniaco")
 
 //-- Obtener elementos del DOM
 const canvas = document.getElementById('canvas');
@@ -38,6 +39,7 @@ const ESTADO = {
   INIT: 0,
   GRISES: 1,
   COLORES: 2,
+  DEMONIACO: 3,
 }
 
 //-- Variable de estado
@@ -102,7 +104,7 @@ function funcion_colores() {
 
   //-- Texto solido
   ctx.font = "25px Arial";
-  ctx.fillStyle = 'yellow'
+  ctx.fillStyle = 'aqua'
   ctx.fillText("Filtro Colores", 10, 30);
 }
 
@@ -134,8 +136,36 @@ function funcion_grises() {
 
   //-- Texto solido
   ctx.font = "25px Arial";
-  ctx.fillStyle = 'yellow'
+  ctx.fillStyle = 'aqua'
   ctx.fillText("Filtro Grises", 10, 30);
+
+}
+
+function funcion_demoniaco() {
+
+  //-- Situar la imagen original en el canvas
+  //-- No se han hecho manipulaciones todavia
+  ctx.drawImage(img_original, 0,0);
+
+  //-- Obtener la imagen del canvas en pixeles
+  var imgData3 = ctx.getImageData(0, 0, 800, 525);
+
+  //-- Obtener el array con todos los píxeles
+  var data3 = imgData3.data
+
+  //-- Ponemos a cero el canal verde y el canal azul
+  for (let i = 0; i < data3.length; i+=4) {
+    data3[i+1] = 0; //-- Canal verde a 0
+    data3[i+2] = 0; //-- Canal azul a 0
+  }
+
+  //-- Poner la imagen modificada en el canvas
+  ctx.putImageData(imgData3, 0, 0);
+
+  //-- Texto solido
+  ctx.font = "25px Arial";
+  ctx.fillStyle = 'aqua'
+  ctx.fillText("Filtro Demoniaco", 10, 30);
 
 }
 
@@ -151,7 +181,7 @@ boton_filtro_grises.onclick = () => {
 
   //-- Texto solido
   ctx.font = "25px Arial";
-  ctx.fillStyle = 'yellow'
+  ctx.fillStyle = 'aqua'
   ctx.fillText("Filtro Grises", 10, 30);
 }
 
@@ -163,7 +193,7 @@ boton_filtro_colores.onclick = () => {
 
   //-- Texto solido
   ctx.font = "25px Arial";
-  ctx.fillStyle = 'yellow'
+  ctx.fillStyle = 'aqua'
   ctx.fillText("Filtro Colores", 10, 30);
 }
 
@@ -189,7 +219,17 @@ deslizador_azul.oninput = () => {
   }
 }
 
+//-- Filtro Demoniaco
+boton_filtro_demoniaco.onclick = () => {
+  estado = ESTADO.DEMONIACO;
 
+  funcion_demoniaco();
+
+  //-- Texto solido
+  ctx.font = "25px Arial";
+  ctx.fillStyle = 'aqua'
+  ctx.fillText("Filtro Demoniaco", 10, 30);
+}
 
 
 

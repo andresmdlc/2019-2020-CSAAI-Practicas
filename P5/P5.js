@@ -271,6 +271,11 @@ function funcion_especular() {
   //-- No se han hecho manipulaciones todavia
   ctx.drawImage(img_original, 0,0);
 
+  //-- Texto solido
+  ctx.font = "25px Arial";
+  ctx.fillStyle = 'red'
+  ctx.fillText("Obteniendo el filtro Imagen Especular...", 10, 90);
+
   //-- Obtener la imagen del canvas en pixeles
   var imgData6 = ctx.getImageData(0, 0, 800, 525);
   var imgEspecular = ctx.getImageData(0, 0, 800, 525);
@@ -283,27 +288,24 @@ function funcion_especular() {
   //-- Tengo imagen de 800x525
   //-- Cada pixel tiene 4 casillas de data
   //-- Así que data es una matriz de 3200x2100
-  for (let i = 0; i < data6.length; i+=3200) {
-    for (let j = 0; j < 800; j+=4) {
+  for (let i = 0; i < data6.length; i+=4) {
 
-      //-- Una vez estamos en la fila i, el pixel j se lo asignamos
-      //-- al opuesto de esa fila (800-j)
-      //-- se lo asignamos al inverso de dataEspecular
-      dataEspecular[i+j] = data6[i-j+3200];
-      dataEspecular[i+j+1] = data6[i-j+3200+1];
-      dataEspecular[i+j+2] = data6[i-j+3200+2];
-      dataEspecular[i+j+3] = data6[i-j+3200+3];
-    }
+    //-- Hay que asignarle el nivel de brillo a las 3 componentes de color
+    dataEspecular[i] = data6[800-i];
+    dataEspecular[i+1] = data6[800-i+1];
+    dataEspecular[i+2] = data6[800-i+2];
+    dataEspecular[i+3] = data6[800-i+3];
+  }
 
   imgEspecular = dataEspecular;
 
   //-- Poner la imagen modificada en el canvas
-  ctx.putImageData(imgEspecular, 0, 0);
+  ctx.putImageData(imgData6, 0, 0);
 
   //-- Texto solido
   ctx.font = "25px Arial";
-  ctx.fillStyle = 'aqua'
-  ctx.fillText("Filtro Imagen Especular", 10, 30);
+  ctx.fillStyle = 'red'
+  ctx.fillText("Función completada", 10, 60);
 
 }
 

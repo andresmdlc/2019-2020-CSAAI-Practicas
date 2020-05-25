@@ -69,7 +69,7 @@ function draw() {
   if (estado == ESTADO.SAQUE) {
     ctx.font = "40px Arial";
     ctx.fillStyle = "aqua";
-    ctx.fillText("Saca!", 40, 400);
+    ctx.fillText("Saca!", 100, 400);
   }
 
   //-- Dibujar el texto de comenzar

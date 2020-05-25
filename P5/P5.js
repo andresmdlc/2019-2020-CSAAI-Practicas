@@ -62,8 +62,12 @@ img_original.onload = function () {
   ctx.drawImage(img_original, 0,0);
 };
 
+
+
+//-- Funciones para cada uno de los filtros
+
 function funcion_colores() {
-  //-- Mostrar el nuevo valor del deslizador_rojo
+  //-- Mostrar el nuevo valor de los deslizadores
   range_value_rojo.innerHTML = deslizador_rojo.value;
   range_value_verde.innerHTML = deslizador_verde.value;
   range_value_azul.innerHTML = deslizador_azul.value;
@@ -97,7 +101,30 @@ function funcion_colores() {
   ctx.putImageData(imgData, 0, 0);
 }
 
+function funcion_grises() {
+  //-- Mostrar el nuevo valor de los deslizadores
+  range_value_rojo.innerHTML = deslizador_rojo.value;
+  range_value_verde.innerHTML = deslizador_verde.value;
+  range_value_azul.innerHTML = deslizador_azul.value;
 
+  //-- Situar la imagen original en el canvas
+  //-- No se han hecho manipulaciones todavia
+  ctx.drawImage(img_original, 0,0);
+
+  //-- Obtener la imagen del canvas en pixeles
+  var imgData = ctx.getImageData(0, 0, 800, 525);
+
+  //-- Obtener el array con todos los píxeles
+  var data = imgData.data
+
+  //-- Poner la imagen modificada en el canvas
+  ctx.putImageData(imgData, 0, 0);
+
+}
+
+
+
+//-- Acciones de los botones que llaman a las funciones
 
 //-- Filtro Colores usando los deslizadores
 boton_filtro_colores.onclick = () => {
@@ -132,7 +159,7 @@ deslizador_azul.oninput = () => {
 //-- Filtro Grises
 boton_filtro_grises.onclick = () => {
   estado = ESTADO.GRISES;
-  funcion_colores();
+  funcion_grises();
 }
 
 console.log("Fin...");

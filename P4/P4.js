@@ -46,46 +46,28 @@ video3.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4"
 video3.play();
 
 //-- Estados la realización de TV
-const ESTADO = {
-  INIT: 0,
-  ESTANDAR: 1,
-  AUTOMATICO: 2,
-  BUCLE: 3,
-}
-
-function funcion_estandar() {
-  video1.play();
-  video2.play();
-  video3.play();
-}
-
-//-- Se retransmiten 3 segundos de cada fuente y se pasa a la siguiente
-//-- Los pulsadores de selección no deberán funcionar en este modo
-//function funcion_automatico()
-
-
+//const ESTADO = {
+  //INIT: 0,
+  //ESTANDAR: 1,
+  //AUTOMATICO: 2,
+  //BUCLE: 3,
+//}
 
 //-- Variable de estado
 //-- Arrancamos desde el estado inicial
-let estado = ESTADO.INIT;
+//let estado = ESTADO.INIT;
 
 //-- Modo estándar
-boton_modo_estandar.onclick = () => {
-  estado = ESTADO.ESTANDAR;
-  funcion_estandar();
-}
-
-//-- Modo automático
-boton_modo_automatico.onclick = () => {
-  estado = ESTADO.AUTOMATICO;
-  funcion_automatico();
-}
+//boton_modo_estandar.onclick = () => {
+  //estado = ESTADO.ESTANDAR;
+  //funcion_estandar();
+//}
 
 //-- Modo bucle
-boton_modo_bucle.onclick = () => {
-  estado = ESTADO.BUCLE;
+//boton_modo_bucle.onclick = () => {
+  //estado = ESTADO.BUCLE;
   //funcion_bucle();
-}
+//}
 
 
 
@@ -94,11 +76,11 @@ boton_modo_bucle.onclick = () => {
 //-- Función de retrollamada del botón de Seleccionar fuente 1
 boton_play1.onclick = () => {
 
-  if (estado == ESTADO.AUTOMATICO) {
+  //if (estado == ESTADO.AUTOMATICO) {
     //-- Al apretar el pulsador de modo manual, se vuelve al modo normal
-    estado = ESTADO.ESTANDAR;
-    funcion_estandar();
-  }
+    //estado = ESTADO.ESTANDAR;
+    //funcion_estandar();
+  //}
 
   console.log("Click!");
   video_emision.src = video1.src
@@ -114,11 +96,11 @@ boton_play1.onclick = () => {
 //-- Función de retrollamada del botón de Seleccionar fuente 2
 boton_play2.onclick = () => {
 
-  if (estado == ESTADO.AUTOMATICO) {
+  //if (estado == ESTADO.AUTOMATICO) {
     //-- Al apretar el pulsador de modo manual, se vuelve al modo normal
-    estado = ESTADO.ESTANDAR;
-    funcion_estandar();
-  }
+    //estado = ESTADO.ESTANDAR;
+    //funcion_estandar();
+  //}
 
   console.log("Click!");
   video_emision.src = video2.src
@@ -134,11 +116,11 @@ boton_play2.onclick = () => {
 //-- Función de retrollamada del botón de Seleccionar fuente 3
 boton_play3.onclick = () => {
 
-  if (estado == ESTADO.AUTOMATICO) {
+  //if (estado == ESTADO.AUTOMATICO) {
     //-- Al apretar el pulsador de modo manual, se vuelve al modo normal
-    estado = ESTADO.ESTANDAR;
-    funcion_estandar();
-  }
+    //estado = ESTADO.ESTANDAR;
+    //funcion_estandar();
+  //}
 
   console.log("Click!");
   video_emision.src = video3.src

@@ -278,7 +278,7 @@ function funcion_especular() {
 
   //-- Obtener la imagen del canvas en pixeles
   var imgData6 = ctx.getImageData(0, 0, 800, 525);
-  var imgEspecular = ctx.getImageData(0, 0, 800, 525);
+  var imgEspecular = imgData6;
 
   //-- Obtener el array con todos los píxeles
   var data6 = imgData6.data
@@ -291,10 +291,10 @@ function funcion_especular() {
   for (let i = 0; i < data6.length; i+=4) {
 
     //-- Hay que asignarle el nivel de brillo a las 3 componentes de color
-    dataEspecular[i] = data6[800-i];
-    dataEspecular[i+1] = data6[800-i+1];
-    dataEspecular[i+2] = data6[800-i+2];
-    dataEspecular[i+3] = data6[800-i+3];
+    dataEspecular[i] = 173;
+    dataEspecular[i+1] = 173;
+    dataEspecular[i+2] = 173;
+    //dataEspecular[i+3] = 173;
   }
 
   imgEspecular = dataEspecular;

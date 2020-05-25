@@ -59,9 +59,9 @@ function funcion_estandar() {
   video3.play();
 }
 
-function funcion_automatico() {
-
-}
+//-- Se retransmiten 3 segundos de cada fuente y se pasa a la siguiente
+//-- Los pulsadores de selección no deberán funcionar en este modo
+//function funcion_automatico()
 
 
 
@@ -102,6 +102,7 @@ boton_play1.onclick = () => {
 
   console.log("Click!");
   video_emision.src = video1.src
+  video_emision.currentTime = video1.currentTime;
   video_emision.play();
 
   //-- Añadir recuadro a la fuente 1
@@ -121,6 +122,7 @@ boton_play2.onclick = () => {
 
   console.log("Click!");
   video_emision.src = video2.src
+  video_emision.currentTime = video2.currentTime;
   video_emision.play();
 
   //-- Añadir recuadro a la fuente 2
@@ -140,6 +142,7 @@ boton_play3.onclick = () => {
 
   console.log("Click!");
   video_emision.src = video3.src
+  video_emision.currentTime = video3.currentTime;
   video_emision.play();
 
   //-- Añadir recuadro a la fuente 3

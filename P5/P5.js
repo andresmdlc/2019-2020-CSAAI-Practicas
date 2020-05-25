@@ -99,6 +99,11 @@ function funcion_colores() {
 
   //-- Poner la imagen modificada en el canvas
   ctx.putImageData(imgData, 0, 0);
+
+  //-- Texto solido
+  ctx.font = "25px Arial";
+  ctx.fillStyle = 'yellow'
+  ctx.fillText("Filtro Colores", 10, 30);
 }
 
 function funcion_grises() {
@@ -127,6 +132,11 @@ function funcion_grises() {
   //-- Poner la imagen modificada en el canvas
   ctx.putImageData(imgData2, 0, 0);
 
+  //-- Texto solido
+  ctx.font = "25px Arial";
+  ctx.fillStyle = 'yellow'
+  ctx.fillText("Filtro Grises", 10, 30);
+
 }
 
 
@@ -136,17 +146,21 @@ function funcion_grises() {
 //-- Filtro Grises
 boton_filtro_grises.onclick = () => {
   estado = ESTADO.GRISES;
+
   funcion_grises();
+
+  //-- Texto solido
+  ctx.font = "25px Arial";
+  ctx.fillStyle = 'yellow'
+  ctx.fillText("Filtro Grises", 10, 30);
 }
 
 //-- Filtro Colores usando los deslizadores
 boton_filtro_colores.onclick = () => {
   estado = ESTADO.COLORES;
-  //-- Texto solido
-  ctx.font = "25px Arial";
-  ctx.fillStyle = 'yellow'
-  ctx.fillText("Filtro Colores", 10, 30);
+
   funcion_colores();
+
   //-- Texto solido
   ctx.font = "25px Arial";
   ctx.fillStyle = 'yellow'

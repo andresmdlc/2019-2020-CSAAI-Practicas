@@ -334,28 +334,28 @@ function funcion_bocaabajo() {
   //-- Tengo imagen de 800x525
   //-- Cada pixel tiene 4 casillas de data
   //-- Así que data es una matriz de 3200x2100
-  for (let i = 0; i < data6.length; i+=3200) {
+  for (let j = 0; j < data6.length; i+=2100) {
 
-    //-- Solo recorro hasta la mitad de la fila
-    for (let j = 0; j < 1600; j+=4) {
+    //-- Solo recorro hasta la mitad de la columna
+    for (let i = 0; i < 1050; j+=4) {
 
       //-- Guardo el valor porque lo voy a machacar
-      let aux = data6[i+j];
-      data6[i+j] = data6[i-j+3200];
-      data6[i-j+3200] = aux;
+      let aux = data6[j+i];
+      data6[j+i] = data6[j-i+2100];
+      data6[j-i+2100] = aux;
 
       //-- No importa machacar el auxiliar porque ya lo puse donde quería
-      aux = data6[i+j+1];
-      data6[i+j+1] = data6[i-j+3200+1];
-      data6[i-j+3200+1] = aux;
+      aux = data6[j+i+1];
+      data6[j+i+1] = data6[j-i+2100+1];
+      data6[j-i+2100+1] = aux;
 
-      aux = data6[i+j+2];
-      data6[i+j+2] = data6[i-j+3200+2];
-      data6[i-j+3200+2] = aux;
+      aux = data6[j+i+2];
+      data6[j+i+2] = data6[j-i+2100+2];
+      data6[j-i+2100+2] = aux;
 
-      aux = data6[i+j+3];
-      data6[i+j+3] = data6[i-j+3200+3];
-      data6[i-j+3200+3] = aux;
+      aux = data6[j+i+3];
+      data6[j+i+3] = data6[j-i+2100+3];
+      data6[j-i+2100+3] = aux;
     }
   }
 

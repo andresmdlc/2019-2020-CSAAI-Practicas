@@ -142,7 +142,15 @@ boton_filtro_grises.onclick = () => {
 //-- Filtro Colores usando los deslizadores
 boton_filtro_colores.onclick = () => {
   estado = ESTADO.COLORES;
+  //-- Texto solido
+  ctx.font = "25px Arial";
+  ctx.fillStyle = 'yellow'
+  ctx.fillText("Filtro Colores", 10, 30);
   funcion_colores();
+  //-- Texto solido
+  ctx.font = "25px Arial";
+  ctx.fillStyle = 'yellow'
+  ctx.fillText("Filtro Colores", 10, 30);
 }
 
 //-- Funcion de retrollamada de los deslizadores

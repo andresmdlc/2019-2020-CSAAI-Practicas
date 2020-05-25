@@ -295,6 +295,19 @@ function funcion_especular() {
       let aux = data6[i+j];
       data6[i+j] = data6[i-j+3200];
       data6[i-j+3200] = aux;
+
+      //-- No importa machacar el auxiliar porque ya lo puse donde quería
+      aux = data6[i+j+1];
+      data6[i+j+1] = data6[i-j+3200+1];
+      data6[i-j+3200+1] = aux;
+
+      aux = data6[i+j+2];
+      data6[i+j+2] = data6[i-j+3200+2];
+      data6[i-j+3200+2] = aux;
+
+      aux = data6[i+j+3];
+      data6[i+j+3] = data6[i-j+3200+3];
+      data6[i-j+3200+3] = aux;
   }
 
   //-- Poner la imagen modificada en el canvas

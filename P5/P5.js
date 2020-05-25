@@ -102,10 +102,6 @@ function funcion_colores() {
 }
 
 function funcion_grises() {
-  //-- Mostrar el nuevo valor de los deslizadores
-  range_value_rojo.innerHTML = deslizador_rojo.value;
-  range_value_verde.innerHTML = deslizador_verde.value;
-  range_value_azul.innerHTML = deslizador_azul.value;
 
   //-- Situar la imagen original en el canvas
   //-- No se han hecho manipulaciones todavia
@@ -116,6 +112,17 @@ function funcion_grises() {
 
   //-- Obtener el array con todos los píxeles
   var data = imgData.data
+
+  //-- Hay que calcular el brillo usando la ecuación:
+  //-- brillo = (3 * r + 4 * g + b)/8
+  for (let i = 0; i < data.length; i+=4) {
+    brillo = (3 * data[i] + 4 * (data[i+1]) + (data[i+2]))/8
+
+    //-- Hay que asignarle el nivel de brillo a las 3 componentes de color
+    data[i] = brillo;
+    data[i+1] = brillo;
+    data[i+2] = brillo;
+  }
 
   //-- Poner la imagen modificada en el canvas
   ctx.putImageData(imgData, 0, 0);

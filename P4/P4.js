@@ -59,6 +59,10 @@ function funcion_estandar() {
   video3.play();
 }
 
+function funcion_automatico() {
+
+}
+
 
 
 //-- Variable de estado
@@ -74,7 +78,7 @@ boton_modo_estandar.onclick = () => {
 //-- Modo automático
 boton_modo_automatico.onclick = () => {
   estado = ESTADO.AUTOMATICO;
-  //funcion_automatico();
+  funcion_automatico();
 }
 
 //-- Modo bucle

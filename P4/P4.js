@@ -45,7 +45,7 @@ video3.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4"
 //-- Reproducir el vídeo directamente nada más cargar la página
 video3.play();
 
-
+var img_pruebas = document.getElementById('img_pruebas')
 
 //-- Estados la realización de TV
 //const ESTADO = {
@@ -135,6 +135,28 @@ boton_play3.onclick = () => {
   video3.classList.add("bordecito");
 };
 
+//-- Función de retrollamada del botón de Seleccionar fuente 3
+boton_play4.onclick = () => {
+
+  //if (estado == ESTADO.AUTOMATICO) {
+    //-- Al apretar el pulsador de modo manual, se vuelve al modo normal
+    //estado = ESTADO.ESTANDAR;
+    //funcion_estandar();
+  //}
+
+  video_emision.pause();
+
+  //-- Quitar la fuente de video
+  video_emision.src = null;
+  video_emision.poster="img_emision_en_pruebas.jpeg";
+
+  //-- Añadir recuadro a la fuente 3
+  video1.classList.remove("bordecito");
+  video2.classList.remove("bordecito");
+  video3.classList.remove("bordecito");
+  img_pruebas.classList.add("bordecito");
+};
+
 //-- Funcion de retrollamada del boton de parar
 boton_stop.onclick = () => {
   video_emision.pause();
@@ -142,4 +164,5 @@ boton_stop.onclick = () => {
   //-- Quitar la fuente de video, para que se muestre la
   //-- imagen definida en el atributo poster
   video_emision.src = null;
+  video_emision.poster="img_sin_emision.jpg";
 }

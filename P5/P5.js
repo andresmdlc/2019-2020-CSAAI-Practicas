@@ -9,6 +9,7 @@ const boton_filtro_nuclear = document.getElementById("boton_filtro_nuclear")
 const boton_filtro_demoniaco = document.getElementById("boton_filtro_demoniaco")
 const boton_filtro_pincel = document.getElementById("boton_filtro_pincel")
 const boton_filtro_especular = document.getElementById("boton_filtro_especular")
+const boton_filtro_bocaabajo = document.getElementById("boton_filtro_bocaabajo")
 
 //-- Obtener elementos del DOM
 const canvas = document.getElementById('canvas');
@@ -46,6 +47,7 @@ const ESTADO = {
   DEMONIACO: 4,
   PINCEL: 5,
   ESPECULAR: 6,
+  BOCAABAJO: 7,
 }
 
 //-- Variable de estado
@@ -271,10 +273,56 @@ function funcion_especular() {
   //-- No se han hecho manipulaciones todavia
   ctx.drawImage(img_original, 0,0);
 
+  //-- Obtener la imagen del canvas en pixeles
+  var imgData6 = ctx.getImageData(0, 0, 800, 525);
+
+  //-- Obtener el array con todos los píxeles
+  var data6 = imgData6.data
+
+  //-- Ponemos a cero el canal verde y el canal azul
+  //-- Tengo imagen de 800x525
+  //-- Cada pixel tiene 4 casillas de data
+  //-- Así que data es una matriz de 3200x2100
+  for (let i = 0; i < data6.length; i+=3200) {
+
+    //-- Solo recorro hasta la mitad de la fila
+    for (let j = 0; j < 1600; j+=4) {
+
+      //-- Guardo el valor porque lo voy a machacar
+      let aux = data6[i+j];
+      data6[i+j] = data6[i-j+3200];
+      data6[i-j+3200] = aux;
+
+      //-- No importa machacar el auxiliar porque ya lo puse donde quería
+      aux = data6[i+j+1];
+      data6[i+j+1] = data6[i-j+3200+1];
+      data6[i-j+3200+1] = aux;
+
+      aux = data6[i+j+2];
+      data6[i+j+2] = data6[i-j+3200+2];
+      data6[i-j+3200+2] = aux;
+
+      aux = data6[i+j+3];
+      data6[i+j+3] = data6[i-j+3200+3];
+      data6[i-j+3200+3] = aux;
+    }
+  }
+
+  //-- Poner la imagen modificada en el canvas
+  ctx.putImageData(imgData6, 0, 0);
+
   //-- Texto solido
   ctx.font = "25px Arial";
-  ctx.fillStyle = 'red'
-  ctx.fillText("Obteniendo el filtro Imagen Especular...", 10, 90);
+  ctx.fillStyle = 'aqua'
+  ctx.fillText("Filtro Imagen Especular", 10, 30);
+
+}
+
+function funcion_bocaabajo() {
+
+  //-- Situar la imagen original en el canvas
+  //-- No se han hecho manipulaciones todavia
+  ctx.drawImage(img_original, 0,0);
 
   //-- Obtener la imagen del canvas en pixeles
   var imgData6 = ctx.getImageData(0, 0, 800, 525);
@@ -316,8 +364,8 @@ function funcion_especular() {
 
   //-- Texto solido
   ctx.font = "25px Arial";
-  ctx.fillStyle = 'red'
-  ctx.fillText("Función completada", 10, 60);
+  ctx.fillStyle = 'aqua'
+  ctx.fillText("Filtro Imagen Boca Abajo", 10, 30);
 
 }
 
@@ -417,6 +465,18 @@ boton_filtro_especular.onclick = () => {
   ctx.font = "25px Arial";
   ctx.fillStyle = 'aqua'
   ctx.fillText("Filtro Imagen Especular", 10, 30);
+}
+
+//-- Filtro Imagen Boca Abajo
+boton_filtro_bocaabajo.onclick = () => {
+  estado = ESTADO.BOCAABAJO;
+
+  funcion_bocaabajo();
+
+  //-- Texto solido
+  ctx.font = "25px Arial";
+  ctx.fillStyle = 'aqua'
+  ctx.fillText("Filtro Imagen Boca Abajo", 10, 30);
 }
 
 

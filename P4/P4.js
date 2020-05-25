@@ -93,6 +93,7 @@ boton_play1.onclick = () => {
   video1.classList.add("bordecito");
   video2.classList.remove("bordecito");
   video3.classList.remove("bordecito");
+  img_pruebas.classList.remove("bordecito");
 };
 
 //-- Función de retrollamada del botón de Seleccionar fuente 2
@@ -113,6 +114,7 @@ boton_play2.onclick = () => {
   video1.classList.remove("bordecito");
   video2.classList.add("bordecito");
   video3.classList.remove("bordecito");
+  img_pruebas.classList.remove("bordecito");
 };
 
 //-- Función de retrollamada del botón de Seleccionar fuente 3
@@ -133,6 +135,7 @@ boton_play3.onclick = () => {
   video1.classList.remove("bordecito");
   video2.classList.remove("bordecito");
   video3.classList.add("bordecito");
+  img_pruebas.classList.remove("bordecito");
 };
 
 //-- Función de retrollamada del botón de Seleccionar fuente 3

@@ -56,7 +56,9 @@ const ESTADO = {
 
 
 function funcion_estandar() {
-
+  video1.play();
+  video2.play();
+  video3.play();
 }
 
 

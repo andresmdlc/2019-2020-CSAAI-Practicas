@@ -1,5 +1,11 @@
 /* Estilo para la clase boton_emision */
 
+body {
+    background-color: #000033;
+    color: white;
+    text-align: center;
+}
+
 .boton_emision {
   background-color: #50FF4C;
   text-align: center;

@@ -93,6 +93,7 @@ boton_play1.onclick = () => {
   if (estado == ESTADO.AUTOMATICO) {
     //-- Al apretar el pulsador de modo manual, se vuelve al modo normal
     estado = ESTADO.ESTANDAR;
+    funcion_estandar();
   }
 
   console.log("Click!");
@@ -111,6 +112,7 @@ boton_play2.onclick = () => {
   if (estado == ESTADO.AUTOMATICO) {
     //-- Al apretar el pulsador de modo manual, se vuelve al modo normal
     estado = ESTADO.ESTANDAR;
+    funcion_estandar();
   }
 
   console.log("Click!");
@@ -129,6 +131,7 @@ boton_play3.onclick = () => {
   if (estado == ESTADO.AUTOMATICO) {
     //-- Al apretar el pulsador de modo manual, se vuelve al modo normal
     estado = ESTADO.ESTANDAR;
+    funcion_estandar();
   }
 
   console.log("Click!");

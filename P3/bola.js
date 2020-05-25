@@ -7,8 +7,8 @@ class Bola {
     this.size = 5;
 
     //-- Contante: Posicion inicial de la bola
-    this.x_ini = 100;
-    this.y_ini = 200;
+    this.x_ini = 70;
+    this.y_ini = 300;
 
     //-- Posicion generica de la bola
     this.x = 0;

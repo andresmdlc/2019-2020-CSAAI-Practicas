@@ -8,11 +8,11 @@ class Raqueta
 
     //-- Constante: Tamaño de la raqueta
     this.width = 10;
-    this.height = 40;
+    this.height = 70;
 
     //-- Constante: Posicion inicial
     this.x_ini = 50;
-    this.y_ini = 100;
+    this.y_ini = 300;
 
     //-- Constante: Velocidad
     this.v_ini = 3;

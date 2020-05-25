@@ -285,39 +285,15 @@ function funcion_especular() {
   //-- Así que data es una matriz de 3200x2100
   for (let i = 0; i < data6.length; i+=3200) {
     for (let j = 0; j < 800; j+=4) {
-      if (j < 1600) {
 
-        //-- Una vez estamos en la fila i, el pixel j se lo asignamos
-        //-- al opuesto de esa fila (800-j)
-        //-- se lo asignamos al inverso de dataEspecular
-        dataEspecular[i+3200-j] = data6[i+j];
-        dataEspecular[i+3200-j-1] = data6[i+j+1];
-        dataEspecular[i+3200-j-2] = data6[i+j+2];
-        dataEspecular[i+3200-j-3] = data6[i+j+3];
-      }
-      if (j == 1600) {
-
-        //-- Una vez estamos en la fila i, el pixel j se lo asignamos
-        //-- al opuesto de esa fila (800-j)
-        //-- se lo asignamos al inverso de dataEspecular
-        dataEspecular[i+j] = data6[i+j];
-        dataEspecular[i+j+1] = data6[i+j+1];
-        dataEspecular[i+j+2] = data6[i+j+2];
-        dataEspecular[i+j+3] = data6[i+j+3];
-      }
-      if (j > 1600) {
-
-        //-- Una vez estamos en la fila i, el pixel j se lo asignamos
-        //-- al opuesto de esa fila (800-j)
-        //-- se lo asignamos al inverso de dataEspecular
-        dataEspecular[i+3200-j] = data6[i+j];
-        dataEspecular[i+3200-j-1] = data6[i+j+1];
-        dataEspecular[i+3200-j-2] = data6[i+j+2];
-        dataEspecular[i+3200-j-3] = data6[i+j+3];
-      }
-
-
-  }
+      //-- Una vez estamos en la fila i, el pixel j se lo asignamos
+      //-- al opuesto de esa fila (800-j)
+      //-- se lo asignamos al inverso de dataEspecular
+      dataEspecular[i+j] = data6[i-j+3200];
+      dataEspecular[i+j+1] = data6[i-j+3200+1];
+      dataEspecular[i+j+2] = data6[i-j+3200+2];
+      dataEspecular[i+j+3] = data6[i-j+3200+3];
+    }
 
   imgEspecular = dataEspecular;
 

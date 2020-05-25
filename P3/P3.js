@@ -76,7 +76,7 @@ function draw() {
   if (estado == ESTADO.INIT) {
     ctx.font = "40px Arial";
     ctx.fillStyle = "aqua";
-    ctx.fillText("Pulsa el botón START", 40, 350);
+    ctx.fillText("Pulsa el botón START", 40, 650);
   }
 }
 

@@ -5,7 +5,9 @@ const boton_img1 = document.getElementById("boton_img1")
 const boton_img2 = document.getElementById("boton_img2")
 const boton_filtro_grises = document.getElementById("boton_filtro_grises")
 const boton_filtro_colores = document.getElementById("boton_filtro_colores")
+const boton_filtro_nuclear = document.getElementById("boton_filtro_nuclear")
 const boton_filtro_demoniaco = document.getElementById("boton_filtro_demoniaco")
+const boton_filtro_pincel = document.getElementById("boton_filtro_pincel")
 
 //-- Obtener elementos del DOM
 const canvas = document.getElementById('canvas');
@@ -39,7 +41,9 @@ const ESTADO = {
   INIT: 0,
   GRISES: 1,
   COLORES: 2,
-  DEMONIACO: 3,
+  NUCLEAR: 3,
+  DEMONIACO: 4,
+  PINCEL: 5,
 }
 
 //-- Variable de estado
@@ -169,6 +173,96 @@ function funcion_demoniaco() {
 
 }
 
+function funcion_pincel() {
+
+  //-- Situar la imagen original en el canvas
+  //-- No se han hecho manipulaciones todavia
+  ctx.drawImage(img_original, 0,0);
+
+  //-- Obtener la imagen del canvas en pixeles
+  var imgData4 = ctx.getImageData(0, 0, 800, 525);
+
+  //-- Obtener el array con todos los píxeles
+  var data4 = imgData4.data
+
+  //-- Vamos a pasar de una imagen con 255 niveles de intensidad
+  //-- a una imagen con 3 niveles de intensidad
+  for (let i = 0; i < data4.length; i+=4) {
+
+    //-- Región de intensidad de 0 a 127 le asignamos intensidad 65
+    if (data4[i] < 128)
+      data4[i] = 65;
+    if (data4[i+1] < 128)
+      data4[i+1] = 25;
+    if (data4[i+2] < 128)
+      data4[i+2] = 25;
+
+    //-- Región de intensidad de 128 a 255 le asignamos intensidad 190
+    if (data4[i] > 127)
+      data4[i] = 190;
+    if (data4[i+1] > 127)
+      data4[i+1] = 190;
+    if (data4[i+2] > 127)
+      data4[i+2] = 190;
+
+  }
+
+  //-- Poner la imagen modificada en el canvas
+  ctx.putImageData(imgData4, 0, 0);
+
+  //-- Texto solido
+  ctx.font = "25px Arial";
+  ctx.fillStyle = 'aqua'
+  ctx.fillText("Filtro Pincel", 10, 30);
+
+}
+
+function funcion_nuclear() {
+
+  //-- Situar la imagen original en el canvas
+  //-- No se han hecho manipulaciones todavia
+  ctx.drawImage(img_original, 0,0);
+
+  //-- Obtener la imagen del canvas en pixeles
+  var imgData5 = ctx.getImageData(0, 0, 800, 525);
+
+  //-- Obtener el array con todos los píxeles
+  var data5 = imgData5.data
+
+  //-- Se halla la intensidad de color promedio de cada pixel
+  //-- pero solo se le asocia a la componente verde
+  for (let i = 0; i < data5.length; i+=4) {
+    brillo = (3 * data5[i] + 4 * (data5[i+1]) + (data5[i+2]))/8
+
+    //-- Hay que asignarle el nivel de brillo a las 3 componentes de color
+    data5[i] = 0;
+    data5[i+1] = brillo;
+    data5[i+2] = 0;
+  }
+
+  //-- Vamos a pasar de una imagen con 255 niveles de intensidad
+  //-- a una imagen con 3 niveles de intensidad
+  for (let i = 1; i < data5.length; i+=4) {
+
+    //-- Región de intensidad de 0 a 127 le asignamos intensidad 65
+    if (data5[i] < 128)
+      data5[i] = 65;
+
+    //-- Región de intensidad de 128 a 255 le asignamos intensidad 190
+    if (data5[i] > 127)
+      data5[i] = 190;
+  }
+
+  //-- Poner la imagen modificada en el canvas
+  ctx.putImageData(imgData5, 0, 0);
+
+  //-- Texto solido
+  ctx.font = "25px Arial";
+  ctx.fillStyle = 'aqua'
+  ctx.fillText("Filtro Nuclear", 10, 30);
+
+}
+
 
 
 //-- Acciones de los botones que llaman a las funciones
@@ -219,6 +313,18 @@ deslizador_azul.oninput = () => {
   }
 }
 
+//-- Filtro Nuclear
+boton_filtro_nuclear.onclick = () => {
+  estado = ESTADO.NUCLEAR;
+
+  funcion_nuclear();
+
+  //-- Texto solido
+  ctx.font = "25px Arial";
+  ctx.fillStyle = 'aqua'
+  ctx.fillText("Filtro Nuclear", 10, 30);
+}
+
 //-- Filtro Demoniaco
 boton_filtro_demoniaco.onclick = () => {
   estado = ESTADO.DEMONIACO;
@@ -229,6 +335,18 @@ boton_filtro_demoniaco.onclick = () => {
   ctx.font = "25px Arial";
   ctx.fillStyle = 'aqua'
   ctx.fillText("Filtro Demoniaco", 10, 30);
+}
+
+//-- Filtro Pincel
+boton_filtro_pincel.onclick = () => {
+  estado = ESTADO.PINCEL;
+
+  funcion_pincel();
+
+  //-- Texto solido
+  ctx.font = "25px Arial";
+  ctx.fillStyle = 'aqua'
+  ctx.fillText("Filtro Pincel", 10, 30);
 }
 
 

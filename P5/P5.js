@@ -97,8 +97,11 @@ function funcion_colores() {
   ctx.putImageData(imgData, 0, 0);
 }
 
+
+
 //-- Filtro Colores usando los deslizadores
 boton_filtro_colores.onclick = () => {
+  estado = ESTADO.COLORES;
   funcion_colores();
 }
 
@@ -112,6 +115,14 @@ deslizador_verde.oninput = () => {
 }
 
 deslizador_azul.oninput = () => {
+  funcion_colores();
+}
+
+
+
+//-- Filtro Grises
+boton_filtro_grises.onclick = () => {
+  estado = ESTADO.GRISES;
   funcion_colores();
 }
 

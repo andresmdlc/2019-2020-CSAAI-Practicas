@@ -108,30 +108,36 @@ function funcion_grises() {
   ctx.drawImage(img_original, 0,0);
 
   //-- Obtener la imagen del canvas en pixeles
-  var imgData = ctx.getImageData(0, 0, 800, 525);
+  var imgData2 = ctx.getImageData(0, 0, 800, 525);
 
   //-- Obtener el array con todos los píxeles
-  var data = imgData.data
+  var data2 = imgData2.data
 
   //-- Hay que calcular el brillo usando la ecuación:
   //-- brillo = (3 * r + 4 * g + b)/8
-  for (let i = 0; i < data.length; i+=4) {
-    brillo = (3 * data[i] + 4 * (data[i+1]) + (data[i+2]))/8
+  for (let i = 0; i < data2.length; i+=4) {
+    brillo = (3 * data2[i] + 4 * (data2[i+1]) + (data2[i+2]))/8
 
     //-- Hay que asignarle el nivel de brillo a las 3 componentes de color
-    data[i] = brillo;
-    data[i+1] = brillo;
-    data[i+2] = brillo;
+    data2[i] = brillo;
+    data2[i+1] = brillo;
+    data2[i+2] = brillo;
   }
 
   //-- Poner la imagen modificada en el canvas
-  ctx.putImageData(imgData, 0, 0);
+  ctx.putImageData(imgData2, 0, 0);
 
 }
 
 
 
 //-- Acciones de los botones que llaman a las funciones
+
+//-- Filtro Grises
+boton_filtro_grises.onclick = () => {
+  estado = ESTADO.GRISES;
+  funcion_grises();
+}
 
 //-- Filtro Colores usando los deslizadores
 boton_filtro_colores.onclick = () => {
@@ -163,10 +169,6 @@ deslizador_azul.oninput = () => {
 
 
 
-//-- Filtro Grises
-boton_filtro_grises.onclick = () => {
-  estado = ESTADO.GRISES;
-  funcion_grises();
-}
+
 
 console.log("Fin...");

@@ -278,26 +278,20 @@ function funcion_especular() {
 
   //-- Obtener la imagen del canvas en pixeles
   var imgData6 = ctx.getImageData(0, 0, 800, 525);
-  var imgEspecular = imgData6;
 
   //-- Obtener el array con todos los píxeles
   var data6 = imgData6.data
-  var dataEspecular = imgEspecular.data
 
   //-- Ponemos a cero el canal verde y el canal azul
   //-- Tengo imagen de 800x525
   //-- Cada pixel tiene 4 casillas de data
   //-- Así que data es una matriz de 3200x2100
-  for (let i = 0; i < data6.length; i+=4) {
+  for (let i = 0; i < data6.length; i+=3200) {
 
-    //-- Hay que asignarle el nivel de brillo a las 3 componentes de color
-    dataEspecular[i] = 173;
-    dataEspecular[i+1] = 173;
-    dataEspecular[i+2] = 173;
-    //dataEspecular[i+3] = 173;
+    //-- Solo recorro hasta la mitad de la fila
+    for (let j = 0; j < 3200; j+=4) {
+
   }
-
-  imgEspecular = dataEspecular;
 
   //-- Poner la imagen modificada en el canvas
   ctx.putImageData(imgData6, 0, 0);

@@ -337,7 +337,7 @@ function funcion_bocaabajo() {
   for (let j = 0; j < data6.length; i+=2100) {
 
     //-- Solo recorro hasta la mitad de la columna
-    for (let i = 0; i < 1050; j+=4) {
+    for (let i = 0; i < 1050; j+=2104) {
 
       //-- Guardo el valor porque lo voy a machacar
       let aux = data6[j+i];

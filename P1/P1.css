@@ -15,12 +15,9 @@ body {
   border: none;
 }
 
-/*
-   Clase color. Cambiar el color
-   del fondo
-*/
-.color {
-  background-color: #FFB62E;
+#listas {
+  text-align: none;
+  margin: 50px;
 }
 
 h1 {

@@ -33,6 +33,17 @@ const range_value_rojo = document.getElementById('range_value_rojo');
 const range_value_verde = document.getElementById('range_value_verde');
 const range_value_azul = document.getElementById('range_value_azul');
 
+//-- Estados del editor
+const ESTADO = {
+  INIT: 0,
+  GRISES: 1,
+  COLORES: 2,
+}
+
+//-- Variable de estado
+//-- Arrancamos desde el estado inicial
+let estado = ESTADO.INIT;
+
 //-- Función de retrollamada de imagen cargada
 //-- La imagen no se carga instantaneamente, sino que
 //-- lleva un tiempo. Sólo podemos acceder a ella una vez

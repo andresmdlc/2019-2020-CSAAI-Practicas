@@ -289,8 +289,12 @@ function funcion_especular() {
   for (let i = 0; i < data6.length; i+=3200) {
 
     //-- Solo recorro hasta la mitad de la fila
-    for (let j = 0; j < 3200; j+=4) {
+    for (let j = 0; j < 1600; j+=4) {
 
+      //-- Guardo el valor porque lo voy a machacar
+      let aux = data6[i+j];
+      data6[i+j] = data6[i-j+3200];
+      data6[i-j+3200] = aux;
   }
 
   //-- Poner la imagen modificada en el canvas

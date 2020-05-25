@@ -308,6 +308,7 @@ function funcion_especular() {
       aux = data6[i+j+3];
       data6[i+j+3] = data6[i-j+3200+3];
       data6[i-j+3200+3] = aux;
+    }
   }
 
   //-- Poner la imagen modificada en el canvas
